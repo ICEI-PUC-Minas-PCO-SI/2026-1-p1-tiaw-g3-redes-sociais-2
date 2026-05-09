@@ -3,47 +3,45 @@
 <span style="color:red">Pré-requisitos: <a href="02-Product-discovery.md"> Product discovery</a></span>
 
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
-
-Neste momento, transformam-se os insights e validações obtidos em soluções tangíveis e utilizáveis. Esta fase envolve a definição de uma proposta de valor, detalhando a prioridade de cada ideia, e a consequente criação de wireframes, mockups e protótipos de alta fidelidade, que especificam a interface e a experiência do usuário.
-
-
 ## Histórias de usuários
 
 Com base na análise das personas, foram identificadas as seguintes histórias de usuários:
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas  ⚠️ EXEMPLO ⚠️         | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões        ⚠️ EXEMPLO ⚠️         | Permitir que possam administrar contas |
+|Usuário (Mariana) | visualizar quanto tempo passo nas redes sociais | ter consciência do meu uso               |
+|Usuário (Lucas) | definir um limite diário de uso | reduzir o tempo gasto nas redes sociais |
+|Usuário (Juliana)  | receber alertas quando uso redes sociais por muito tempo    | evitar uso excessivo     |
+|Usuário (Mariana)      | visualizar relatórios semanais do meu uso  | analisar meus hábitos |
+|Usuário (Lucas)  | reduzir meu tempo de tela       | me dedicar a atividades com maior importância  |
+|Usuário (Juliana)     | receber sugestões de pausas      | evitar uso contínuo prolongado |
+|Usuário (Mariana)  | desativar notificações de redes sociais em horários específicos      | substituí-los por outras atividades e hobbies mais produtivos             |
+|Usuário (Lucas)     | definir metas de redução de uso    | melhorar minha produtividade    |
+|Usuário (Juliana)  | desativar notificações de redes sociais em horários específicos| evitar distrações         |
+|Usuário (Mariana)    | ativar um "modo foco"  | minimizar distrações enquanto realizo tarefas (estudo/tarefas/trabalho) |
+|Usuário (Lucas) | registrar minhas tarefas realizadas    |  avaliar e analisar meu progresso   |
+|Administrador       | visualizar dados agregados de uso | entender o comportamento geral dos usuários do sistema |
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
 
-Apresente aqui as histórias de usuários que são relevantes para o projeto da sua solução. As histórias de usuários consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuários por contexto, para facilitar consultas recorrentes a esta parte do documento.
-
-> **Links úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (user stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 common user story mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
 
 ## Proposta de valor
 
 **✳️✳️✳️ APRESENTE O DIAGRAMA DA PROPOSTA DE VALOR PARA CADA PERSONA ✳️✳️✳️**
 
-##### Proposta para a persona XPTO ⚠️ EXEMPLO ⚠️
+##### Proposta para a persona Mariana
 
-![Exemplo de proposta de valor](images/exemplo-proposta-valor.png)
+![Proposta de valor - Mariana](images/propostadevalorMariana.png)
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> O mapa da proposta de valor é uma ferramenta que auxilia na definição do tipo de produto ou serviço que melhor atende às personas previamente estabelecidas.
+##### Proposta para a persona Lucas Oliveira
+
+![Proposta de valor - Lucas Oliveira](images/propotadevalorLucas.png)
+
+##### Proposta para a persona Juliana
+
+![Proposta de valor - Juliana](images/propostadevalorJuliana.png)
 
 
-> **Links úteis**:
-> - [O que é o canvas da proposta de valor e como usar?](https://www.youtube.com/watch?v=Iqb-8Q_eiiA)
 
 ## Requisitos
 

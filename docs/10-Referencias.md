@@ -2,20 +2,14 @@
 
 Inclua todas as referências (livros, artigos, sites, etc.) utilizadas no desenvolvimento do trabalho.
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
+**Referências utilizadas na identificação do Problema**
 
-⚠️ EXEMPLO ⚠️
+- ALFAYA, A. et al. **Social media addiction among university students: prevalence and associated factors. Healthcare**, [S.l.], v. 11, n. 3, 2023.
 
-- BENYON, David. **Interação humano-computador**. 2. ed. São Paulo: Pearson Prentice Hall, 2011.
+- HUANG, C. et al. **Problematic social media use and mental health among university students. Journal of Eating Disorders, [S.l.]**, v. 11, 2023.
 
-- CORMEN, Thomas H et al. **Algoritmos:** teoria e prática. 4. ed. Rio de Janeiro: GEN LTC, 2024.
- 
-- ELMASRI, Ramez; NAVATHE, Sham. **Sistemas de banco de dados**. 7. ed. São Paulo: Pearson, c2019.
+- ALZAHRANI, A. et al. **Prevalence of social media addiction among university students using the Bergen Social Media Addiction Scale. Healthcare**, [S.l.], v. 11, 2023.
 
-- RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial:** uma abordagem moderna. 4. ed. Rio de Janeiro, RJ: LTC, 2022.
+- NDLOVU, S. et al. **The impact of social media usage on academic performance among university students. International Journal of Educational Sciences**, [S.l.], 2022.
 
-- SUTHERLAND, Jeffrey Victor; SUTHERLAND, J. J. **Scrum:** a arte de fazer o dobro do trabalho na metade do tempo. Rio de Janeiro, RJ: Sextante, 2019. 254 p.
-
-> **Links úteis**:
-> - [Padrão PUC Minas de normalização ABNT](https://www.pucminas.br/biblioteca/DocumentoBiblioteca/ABNT-GUIA-COMPLETO-Elaborar-formatar-trabalho-cientifico.pdf)
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/)
+- SAENGOW, U. et al. **Trends in research on social media addiction: a bibliometric analysis. Frontiers in Psychiatry**, [S.l.], v. 14, 2023.

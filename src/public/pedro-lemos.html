@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil</title>
+    <style>
+/*limpar formatação automatica*/ 
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            background-color: #f2f2f2;
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+        }
+/*limpar formatação automatica*/ 
+
+
+/*configuração dos titulos de cada*/
+        h1{
+            font-size: 42px;
+            margin-bottom: 5px;
+        }
+
+        h2{
+            font-size: 24px;
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        .section-title{
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+/*configuração dos titulos de cada*/
+
+
+/*divisão da pagina em colunas*/
+        .container{
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .left{
+            width: 55%;
+        }
+
+        .right{
+            width: 35%;
+        }
+/*divisão da pagina em colunas*/
+
+
+/*configuração da foto de perfil*/
+        .foto{
+            width: 200px;
+            height: 200px;
+
+            border: 2px solid #ccc;
+            border-radius: 8px;
+
+            background-color: white;
+
+            margin-bottom: 25px;
+        }
+
+        .foto img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+/*configuração da foto de perfil*/
+
+
+/*caixa de informações*/
+        .info-box{
+            width: 100%;
+
+            background-color: white;
+
+            border: 1px solid #ccc;
+            border-radius: 8px;
+
+            padding: 12px;
+
+            margin-bottom: 15px;
+        }
+/*caixa de informações*/
+
+
+/*configuração dos Cards*/
+        .card{
+            background-color: white;
+
+            border: 2px solid #d5d5d5;
+
+            border-radius: 10px;
+
+            padding: 20px;
+        }
+
+        .card h3{
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        ul{
+            list-style: none;
+        }
+
+        li{
+            margin-bottom: 16px;
+
+            font-size: 18px;
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        li::before{
+            content: "☐";
+            font-size: 18px;
+            color: #666;
+        }
+/*configuração dos Cards*/
+
+
+        @media(max-width: 768px){
+
+            .container{
+                flex-direction: column;
+            }
+
+            .left,
+            .right{
+                width: 100%;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Meu perfil</h1>
+    <h2>Informações do Usuário</h2>
+
+    <div class="container">
+
+        <div class="left">
+             <div class="section-title">
+                Foto de Perfil
+            </div>
+
+            <div class="foto">
+                <img src="assets/images/lucas.jpg" alt="Foto de Perfil">
+            </div>
+
+            <div class="section-title">
+                Nome
+            </div>
+
+            <div class="info-box">
+                Lucas
+            </div>
+
+            <div class="section-title">
+                E-mail
+            </div>
+
+            <div class="info-box">
+                exemplo@gmail.com
+            </div>
+
+            <div class="section-title">
+                Redes Sociais
+            </div>
+
+            <div class="info-box">
+                Instagram: @usuario
+            </div>
+
+            <div class="info-box">
+                Facebook: usuario.fb
+            </div>
+
+            <div class="info-box">
+                X/Twitter: @usuariox
+            </div>
+
+            </div>
+
+        
+
+        <div class="right">
+
+            <div class="card">
+
+                <h3>Seus interesses</h3>
+                <ul>
+
+                    <li>Estudos</li>
+                    <li>Saúde</li>
+                    <li>Fitness</li>
+                    <li>Culinária</li>
+
+                </ul>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Redes sociais que mais usa</h3>
+
+                <ul>
+
+                    <li>Whatsapp</li>
+                    <li>Instagram</li>
+                    <li>Facebook</li>
+                    <li>TikTok</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
