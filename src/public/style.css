@@ -1,0 +1,134 @@
+/* Importando a fonte Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --bg-page: #f1f5f9;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --input-focus: #2563eb;
+    --font-main: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: var(--font-main);
+    background-color: var(--bg-page);
+    /* Centralização absoluta na tela */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.registration-container {
+    background-color: var(--bg-card);
+    width: 100%;
+    max-width: 440px;
+    padding: 40px;
+    
+    /* Borda e Arredondamento */
+    border: 2px solid var(--border-color);
+    border-radius: 24px;
+    
+    /* Sombra suave */
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    margin: 0 0 8px 0;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.5px;
+}
+
+p {
+    margin: 0 0 32px 0;
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.input-group {
+    margin-bottom: 24px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    margin-left: 4px;
+}
+
+input {
+    width: 100%;
+    padding: 14px 18px;
+    font-family: var(--font-main);
+    font-size: 15px;
+    background-color: #f8fafc;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    color: var(--text-main);
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+button {
+    font-family: var(--font-main);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel {
+    background-color: transparent;
+    color: var(--text-muted);
+    padding: 12px 20px;
+    border-radius: 12px;
+}
+
+.btn-cancel:hover {
+    color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.btn-add {
+    background-color: #000; /* Botão preto como na imagem */
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 12px;
+}
+
+.btn-add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-add:active {
+    transform: translateY(0);
+}
