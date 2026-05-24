@@ -1,0 +1,57 @@
+{
+    "usuario": {
+        "id": "01",
+        "nome": "Lucas",
+        "email": "exemplo@gmail.com",
+        "instagram": "@usuario",
+        "facebook": "@usuario",
+        "twitter": "@usuario",
+        "interesses_disponiveis": [
+            "Estudos", "Saúde", "Fitness", "Culinária", "Música",
+            "Tecnologia", "Esportes", "Filmes", "Séries", "Jogos",
+            "Leitura", "Viagens", "Arte", "Fotografia", "Moda",
+            "Negócios", "Ciência", "Natureza"
+        ],
+        "interesses_selecionados": ["Estudos", "Saúde"],
+        "redes_disponiveis": [
+            "WhatsApp", "Instagram", "Facebook", "TikTok", "YouTube",
+            "Twitter/X", "LinkedIn", "Discord", "Twitch", "Pinterest",
+            "Snapchat", "Telegram", "Reddit", "Threads"
+        ],
+        "redes_selecionadas": ["WhatsApp", "Instagram"]
+    },
+
+    "dashboard": {
+        "data_referencia": "2026-05-23",
+        "tempo_total_geral_minutos": 105,
+        "uso_por_plataforma": [
+            {"rede": "Instagram", "minutos": 45},
+            {"rede": "WhatsApp", "minutos": 20},
+            {"rede": "TikTok", "minutos": 40}
+        ],
+        "metas_definidas": {
+            "Instagram": 30,
+            "WhatsApp": 60,
+            "TikTok": 30
+        },
+        "analise": [
+            {"rede": "Instagram", "tempo_gasto_minutos": 45, "meta_minutos": 30, "limite_excedido": true, "percentual": 150.0},
+            {"rede": "WhatsApp", "tempo_gasto_minutos": 20, "meta_minutos": 60, "limite_excedido": false, "percentual": 33.3}
+        ],
+        "conteudos_recomendados": [
+            {"id": 1, "titulo": "", "descricao": "", "categoria": "", "link": ""}
+        ]
+    },
+
+    "cronometro": {
+        "tempo_atual": "00:00",
+        "rede_selecionada": "Instagram",
+        "lista_de_redes": ["Instagram", "Facebook", "WhatsApp", "TikTok"],
+        "historico_sessoes": [
+            {"rede": "Instagram", "tempo": "45 min"},
+            {"rede": "TikTok", "tempo": "45 min"},
+            {"rede": "WhatsApp", "tempo": "45 min"},
+            {"rede": "Facebook", "tempo": "45 min"}
+        ]
+    }
+}
