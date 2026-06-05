@@ -11,9 +11,7 @@ window.addEventListener("load", function () {
 
 function inicializarDados() {
     //uso de redes sociais
-    if (!localStorage.getItem("uso_redes")) {
-
-        const dadosExemplo = {
+    const dadosExemplo = {
             usuario_id: 1,
             data_referencia: "2026-05-22",
 
@@ -28,17 +26,15 @@ function inicializarDados() {
             "uso_redes",
             JSON.stringify(dadosExemplo)
         );
-    }
+    
 
     //usuário
-    if (!localStorage.getItem("usuario")) {
-
         const dadosExemploUsuario = {
             id: 1,
             foto_perfil: "/images/users/joao.jpg",
             nome: "João Silva",
             email: "joao@email.com",
-            interesses_ids: [1, 2],
+            interesses_ids: [1,2],
             redes_sociais_ids: [1, 2]
         };
 
@@ -46,11 +42,9 @@ function inicializarDados() {
             "usuario",
             JSON.stringify(dadosExemploUsuario)
         );
-    }
+    
 
     //interesses
-    if (!localStorage.getItem("interesses")) {
-
         const interessesExemplo = {
             interesses: [
                 {
@@ -68,11 +62,9 @@ function inicializarDados() {
             "interesses",
             JSON.stringify(interessesExemplo)
         );
-    }
+
 
     //redes sociais
-    if (!localStorage.getItem("redes_sociais")) {
-
         const redesExemplo = {
             redes_sociais: [
                 {
@@ -94,10 +86,8 @@ function inicializarDados() {
             "redes_sociais",
             JSON.stringify(redesExemplo)
         );
-    }
 
     //conteúdos recomendados
-    if (!localStorage.getItem("conteudos_recomendados")) {
 
         const dadosExemploConteudos = {
             conteudos_recomendados: [
@@ -129,7 +119,7 @@ function inicializarDados() {
             "conteudos_recomendados",
             JSON.stringify(dadosExemploConteudos)
         );
-    }
+    
 }
 
 
@@ -169,10 +159,23 @@ function carregarInteresses() {
         localStorage.getItem("interesses")
     );
 
+    const dadosSalvosUsuario = JSON.parse(
+        localStorage.getItem("usuario")
+    );
+
     const selectInteresse =
         document.getElementById("filtro-interesse");
 
-    dadosSalvosInteresses.interesses.forEach(interesse => {
+    const interessesUsuario =
+        dadosSalvosInteresses.interesses.filter(
+            interesse =>
+                dadosSalvosUsuario.interesses_ids.includes(
+                    interesse.id
+                )
+        );
+
+    interessesUsuario.forEach(interesse => {
+
         selectInteresse.innerHTML += `
             <option value="${interesse.id}">
                 ${interesse.nome}
@@ -209,6 +212,19 @@ function carregarConteudos() {
     const dadosSalvosConteudos = JSON.parse(
         localStorage.getItem("conteudos_recomendados")
     );
+
+    if (dadosSalvosUsuario.interesses_ids.length === 0) {
+
+        document.getElementById(
+            "conteudos-recomendados"
+        ).innerHTML = `
+            <p>
+                Você não possui interesses cadastrados.
+            </p>
+        `;
+
+        return;
+    }
 
     const conteudosFiltrados =
         dadosSalvosConteudos.conteudos_recomendados.filter(
