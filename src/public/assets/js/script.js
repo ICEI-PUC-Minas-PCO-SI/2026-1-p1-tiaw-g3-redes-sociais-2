@@ -149,7 +149,7 @@ function salvarEdicao() {
     const usuarioAtual = dadosSalvos ? JSON.parse(dadosSalvos) : {};
 
     const usuario = {
-        id: "01",
+        id: usuarioAtual.id,
         nome: document.getElementById('campo-nome').textContent,
         email: document.getElementById('campo-email').textContent,
         instagram: document.getElementById('campo-instagram').textContent,
