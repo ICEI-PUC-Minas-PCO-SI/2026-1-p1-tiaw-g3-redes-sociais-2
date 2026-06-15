@@ -54,3 +54,92 @@ h4 {
 main {
     padding: 20px;
 }
+
+/* ===== SCORE ===== */
+
+.perfil-topo{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.score-card{
+    width: 260px;
+    background: white;
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #e5e5e5;
+}
+
+.score-header{
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.score-circle{
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: auto;
+}
+
+.score-circle svg{
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.circle-bg{
+    fill: none;
+    stroke: #e9ecef;
+    stroke-width: 2.8;
+}
+
+.circle-progress{
+    fill: none;
+    stroke: #84cc16;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    transition: 0.8s;
+}
+
+.score-content{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.score-number{
+    font-size: 42px;
+    font-weight: 800;
+    color: #222;
+    line-height: 1;
+}
+
+.score-label{
+    font-size: 15px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.score-footer{
+    margin-top: 15px;
+}
+
+.score-up{
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #dcfce7;
+    color: #16a34a;
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-weight: 600;
+}
