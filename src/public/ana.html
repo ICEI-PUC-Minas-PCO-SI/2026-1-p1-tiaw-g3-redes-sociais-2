@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2  border-bottom border-dark">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <img src="assets/images/logo.png" width="50" height="40" class="me-2 mx-3">
+                <span class="fs-2 fw-bold">OnLife</span>
+            </a>
+
+            <div class="col-md-3 text-end pe-4">
+                <button type="button" class="btn btn-dark px-5">Sair</button>
+            </div>
+        </header>
+
+        <main class="container-fluid flex-grow-1">
+            <div class="row h-100">
+                <aside class="col-12 col-md-2">
+                    <div class="d-flex flex-column flex-shrink-0 p-3 border-end border-dark h-100"">
+                
+                    <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active bg-secondary-subtle text-dark" aria-current="page">
+                        Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                        Tarefas
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                        Cronômetro
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-link link-dark">
+                        Meu Perfil
+                        </a>
+                    </li>
+                    </ul>
+                    
+                </div>
+                </aside>
+
+                <div class="col-12 col-md-6">
+                    <div class="d-flex flex-column m-3">
+                        <div>
+                            <h3>Olá, Usuário!</h3>
+                            <p>Aqui está um resumo da sua jornada de hoje</p>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Tempo Hoje</h5>
+                                <h4 id="tempo-hoje">0 h 0 m</h4>
+                                <div class="progress" style="height: 20px;">
+                                    <div id="barra-progresso" class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="d-flex flex-column m-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="bi bi-journal-text"></i>
+                                    Conteúdos Recomendados</h5>
+                                <select id="filtro-interesse" class="form-select mb-3">
+                                    <option value="todos">Todos</option>
+                                </select>
+                                <div id="conteudos-recomendados"></div>
+                                <button id="btn-sugerir" class="btn btn-dark"> 
+                                    <i class="bi bi-dice-3"></i>
+                                    Sugerir Conteúdo Aleatório </button>
+                                <div id="conteudo-aleatorio"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-dark text-light py-3 mt-auto px-4">
+            <div class= "d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+                <div>OnLife @ 2026. All rights reserved.</div>
+            <div>
+                <i class="bi bi-youtube"></i>
+                <i class="bi bi-facebook"></i>
+                <i class="bi bi-instagram"></i>
+                <i class="bi bi-linkedin"></i>
+            </div>
+            </div>
+            
+        </footer>
+
+   
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="assets/js/dashboard.js"></script>
+</body>
+</html>
