@@ -1,0 +1,61 @@
+{
+    "grupo": {
+        "id": "grupo-01",
+        "nome": "Turma OnLife",
+        "desafio": "Reduzir uso de redes sociais em 30 dias",
+        "data_inicio": "2026-06-01",
+        "data_fim": "2026-06-30"
+    },
+    "usuarios": [
+        {
+            "id": "01",
+            "nome": "Lucas",
+            "foto": "assets/images/lucas.jpg",
+            "pontos": {
+                "tempo": 120,
+                "tarefas": 80,
+                "total": 200
+            }
+        },
+        {
+            "id": "02",
+            "nome": "Juliana",
+            "foto": "assets/images/juliana.jpg",
+            "pontos": {
+                "tempo": 90,
+                "tarefas": 150,
+                "total": 240
+            }
+        },
+        {
+            "id": "03",
+            "nome": "Mariana",
+            "foto": "assets/images/mariana.jpg",
+            "pontos": {
+                "tempo": 200,
+                "tarefas": 60,
+                "total": 260
+            }
+        },
+        {
+            "id": "04",
+            "nome": "Maria",
+            "foto": "assets/images/maria.jpg",
+            "pontos": {
+                "tempo": 60,
+                "tarefas": 120,
+                "total": 180
+            }
+        },
+        {
+            "id": "05",
+            "nome": "João",
+            "foto": "assets/images/joao.jpg",
+            "pontos": {
+                "tempo": 150,
+                "tarefas": 40,
+                "total": 190
+            }
+        }
+    ]
+}
