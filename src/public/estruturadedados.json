@@ -1,0 +1,17 @@
+[
+  { "nome": "Parque Central", 
+    "categoria": "Natureza", 
+    "descrição": "Ambiente ideal para caminhadas e contato com a natureza.", 
+    "favorito": false
+  },
+  { "nome": "Café Aurora", 
+    "categoria": "Social", 
+    "descrição": "Espaço confortável para conversar e relaxar.", 
+    "favorito": true
+  },
+  { "nome": "Biblioteca Municipal", 
+    "categoria": "Leitura",
+    "descrição": "Lugar silencioso perfeito para leitura.", 
+    "favorito": false
+  }
+]
