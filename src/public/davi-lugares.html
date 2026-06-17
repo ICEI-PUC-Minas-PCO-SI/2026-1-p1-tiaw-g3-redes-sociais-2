@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OnLife - Lugares</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+<body class="bg-light">
+
+<header class="d-flex justify-content-between align-items-center p-3 border-bottom bg-white">
+    <div class="d-flex align-items-center">
+        <div style="width:50px;height:40px;background:#ccc;margin-right:10px;"></div>
+        <h4 class="m-0">OnLife</h4>
+    </div>
+    <div>
+        <i class="bi bi-person-circle fs-3"></i>
+    </div>
+</header>
+
+<main class="container py-5">
+
+<section class="mb-5">
+    <h1 class="fw-bold">Lugares para se desconectar</h1>
+    <p class="text-muted">
+        Explore ambientes e atividades offline para reduzir o tempo nas redes sociais.
+    </p>
+</section>
+
+<section class="row mb-4">
+
+    <div class="col-md-5 mb-3">
+        <input type="text" id="busca" class="form-control" placeholder="Pesquisar lugares...">
+    </div>
+
+    <div class="col-md-3 mb-3">
+        <select id="filtro" class="form-select">
+            <option value="">Todas categorias</option>
+            <option value="Natureza">Natureza</option>
+            <option value="Social">Social</option>
+            <option value="Leitura">Leitura</option>
+        </select>
+    </div>
+
+    <div class="col-md-4 mb-3 d-flex align-items-center">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="somenteFavoritos">
+            <label class="form-check-label">Mostrar apenas favoritos</label>
+        </div>
+    </div>
+
+</section>
+
+<p id="contador" class="text-muted fw-semibold"></p>
+
+<section>
+    <div id="lista" class="row g-4"></div>
+</section>
+
+</main>
+
+<footer class="bg-dark text-light py-3 px-4 mt-5">
+    <div class="d-flex justify-content-between">
+        <div>OnLife © 2026</div>
+        <div>
+            <i class="bi bi-instagram"></i>
+            <i class="bi bi-facebook"></i>
+            <i class="bi bi-linkedin"></i>
+        </div>
+    </div>
+</footer>
+
+<script>
+
+let lugares = JSON.parse(localStorage.getItem("lugares")) || [
+
+{
+nome:"Parque Central",
+categoria:"Natureza",
+endereco:"Avenida Central, 1200 - Centro",
+imagem:"https://picsum.photos/600/400?random=1",
+descricao:"Ambiente ideal para caminhadas e contato com a natureza.",
+favorito:false
+},
+
+{
+nome:"Jardim Botânico",
+categoria:"Natureza",
+endereco:"Avenida Verde, 800 - Jardim Primavera",
+imagem:"https://picsum.photos/600/400?random=2",
+descricao:"Espaço com áreas verdes e trilhas para caminhada.",
+favorito:false
+},
+
+{
+nome:"Lago Municipal",
+categoria:"Natureza",
+endereco:"Rua do Lago, 100 - Bairro Lago Azul",
+imagem:"https://picsum.photos/600/400?random=3",
+descricao:"Local tranquilo para relaxar e apreciar a paisagem.",
+favorito:false
+},
+
+{
+nome:"Praça da Cidade",
+categoria:"Natureza",
+endereco:"Praça Central, 50 - Centro",
+imagem:"https://picsum.photos/600/400?random=4",
+descricao:"Ótimo local para passeios e momentos ao ar livre.",
+favorito:false
+},
+
+{
+nome:"Café Aurora",
+categoria:"Social",
+endereco:"Avenida Brasil, 45 - Centro",
+imagem:"https://picsum.photos/600/400?random=5",
+descricao:"Espaço confortável para conversar e relaxar.",
+favorito:false
+},
+
+{
+nome:"Café Cultural",
+categoria:"Social",
+endereco:"Rua da Cultura, 78 - Centro",
+imagem:"https://picsum.photos/600/400?random=6",
+descricao:"Ambiente agradável para encontros e leitura.",
+favorito:false
+},
+
+{
+nome:"Centro Cultural",
+categoria:"Social",
+endereco:"Praça das Artes, 10 - Centro",
+imagem:"https://picsum.photos/600/400?random=7",
+descricao:"Eventos e atividades culturais para todas as idades.",
+favorito:false
+},
+
+{
+nome:"Centro Esportivo",
+categoria:"Social",
+endereco:"Avenida dos Esportes, 500 - Parque Esportivo",
+imagem:"https://picsum.photos/600/400?random=8",
+descricao:"Espaço para esportes e lazer.",
+favorito:false
+},
+
+{
+nome:"Biblioteca Municipal",
+categoria:"Leitura",
+endereco:"Rua dos Livros, 15 - Centro",
+imagem:"https://picsum.photos/600/400?random=9",
+descricao:"Lugar silencioso perfeito para leitura.",
+favorito:false
+},
+
+{
+nome:"Biblioteca Comunitária",
+categoria:"Leitura",
+endereco:"Avenida Educação, 300 - Bairro Escolar",
+imagem:"https://picsum.photos/600/400?random=10",
+descricao:"Ambiente tranquilo para estudos e leitura.",
+favorito:false
+}
+
+];
+
+function salvar(){
+localStorage.setItem("lugares", JSON.stringify(lugares));
+}
+
+function renderizar(){
+
+let busca = document.getElementById("busca").value.toLowerCase();
+let filtro = document.getElementById("filtro").value;
+let somenteFavoritos = document.getElementById("somenteFavoritos").checked;
+
+let filtrados = lugares.filter(lugar =>
+lugar.nome.toLowerCase().includes(busca) &&
+(filtro === "" || lugar.categoria === filtro) &&
+(!somenteFavoritos || lugar.favorito)
+);
+
+document.getElementById("contador").innerText =
+filtrados.length + " lugar(es) encontrado(s)";
+
+let lista = document.getElementById("lista");
+lista.innerHTML = "";
+
+if(filtrados.length === 0){
+lista.innerHTML = "<p class='text-muted'>Nenhum lugar encontrado.</p>";
+return;
+}
+
+filtrados.forEach((lugar,index)=>{
+
+lista.innerHTML += `
+
+<div class="col-md-6">
+
+<div class="card h-100 shadow-sm border-0">
+
+<img src="${lugar.imagem}" class="card-img-top" style="height:220px;object-fit:cover;">
+
+<div class="card-body">
+
+<div class="d-flex justify-content-between align-items-start">
+
+<div>
+
+<h5>${lugar.nome}</h5>
+
+<span class="badge bg-secondary mb-2">
+${lugar.categoria}
+</span>
+
+<p class="small text-secondary">
+📍 ${lugar.endereco}
+</p>
+
+</div>
+
+<button
+class="btn btn-outline-warning btn-sm"
+onclick="favoritar(${lugares.indexOf(lugar)})">
+
+${lugar.favorito ? "★" : "☆"}
+
+</button>
+
+</div>
+
+<p class="text-muted">
+${lugar.descricao}
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+function favoritar(index){
+lugares[index].favorito = !lugares[index].favorito;
+salvar();
+renderizar();
+}
+
+document.getElementById("busca").addEventListener("input", renderizar);
+document.getElementById("filtro").addEventListener("change", renderizar);
+document.getElementById("somenteFavoritos").addEventListener("change", renderizar);
+
+renderizar();
+
+</script>
+
+</body>
+</html>
