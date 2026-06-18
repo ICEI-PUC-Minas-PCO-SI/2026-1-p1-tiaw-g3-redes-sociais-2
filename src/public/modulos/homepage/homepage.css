@@ -1,8 +1,356 @@
+/* ===== GERAL ===== */
+:root {
+    --primary: #4284c1;
+    --secondary: #4ca9cb;
+    --accent: #63d2c3;
+    --dark: #1f2937;
+    --light: #f8fbff;
+}
+
+body {
+    background: linear-gradient(180deg, #f8fbff 0%, #eef7fb 100%);
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--dark);
+}
+
+/* ===== HEADER ===== */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 15px rgba(0,0,0,.05);
+}
+
+.logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.logo h4 {
+    color: var(--primary);
+    font-weight: 700;
+    margin-left: 10px;
+}
+
+.btn-dark {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    transition: .3s;
+}
+
+.btn-dark:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(66,132,193,.3);
+}
+
+.btn-link {
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ===== HERO ===== */
+.hero-avatar {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+    );
+    box-shadow: 0 15px 40px rgba(66,132,193,.25);
+    position: relative;
+}
+
+.hero-avatar::after {
+    content: "📱";
+    font-size: 70px;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.text-muted {
+    font-size: 1.1rem;
+}
+
+/* ===== SEÇÕES ===== */
+section {
+    margin-top: 80px !important;
+}
+
+.section-title {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* ===== CARDS ===== */
+.card-modern {
+    background: white;
+    border: none;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.05);
+    transition: .3s;
+}
+
+.card-modern:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(66,132,193,.12);
+}
+
+.feature-card {
+    background: linear-gradient(
+        135deg,
+        rgba(76,169,203,.08),
+        rgba(99,210,195,.12)
+    );
+    border-left: 5px solid var(--accent);
+    border-radius: 18px;
+    padding: 20px;
+    transition: .3s;
+}
+
+.feature-card:hover {
+    transform: translateX(5px);
+}
+
+.feature-card strong {
+    color: var(--primary);
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* ===== FILTROS ===== */
+.form-control,
+.form-select {
+    border-radius: 14px;
+    border: 2px solid #e5e7eb;
+    padding: 12px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 .25rem rgba(76,169,203,.2);
+}
+
+/* ===== LISTA DE NOTÍCIAS ===== */
+#lista .card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
+    transition: .3s;
+}
+
+#lista .card:hover {
+    transform: translateY(-6px);
+}
+
+.badge-custom {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--accent)
+    );
+    color: white;
+}
+
+/* ===== MODAL ===== */
+.modal-content {
+    border: none;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.modal-header {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color: white;
+}
+
+.modal-title {
+    font-weight: 700;
+}
+
+.modal-body {
+    padding: 30px;
+    line-height: 1.8;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color: white;
+    padding: 40px 0;
+    margin-top: 80px;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .hero-avatar {
+        width: 180px;
+        height: 180px;
+        margin-bottom: 25px;
+    }
+}
+
+/* ===== CARD NOTÍCIA ===== */
+
 .card-noticia {
-            cursor: pointer;
-            transition: box-shadow 0.15s ease, transform 0.15s ease;
-        }
-        .card-noticia:hover {
-            box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
-            transform: translateY(-2px);
+    background: white;
+    border-radius: 24px;
+    padding: 25px;
+    height: 100%;
+    cursor: pointer;
+    position: relative;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, .05);
+
+    transition: .35s ease;
+
+    overflow: hidden;
+}
+
+.card-noticia::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 5px;
+
+    background: linear-gradient(
+        90deg,
+        #4284c1,
+        #4ca9cb,
+        #63d2c3
+    );
+}
+
+.card-noticia:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 20px 45px rgba(66, 132, 193, .15);
+}
+
+.card-noticia h5 {
+    color: #1f2937;
+    font-weight: 700;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.card-noticia p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+.categoria-topo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    background: rgba(99, 210, 195, .12);
+
+    color: #4284c1;
+
+    padding: 8px 14px;
+
+    border-radius: 30px;
+
+    font-size: .85rem;
+    font-weight: 600;
+}
+
+.categoria-topo i {
+    font-size: 1rem;
+}
+
+.btn-favorito {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: #fff8e1;
+
+    font-size: 1.3rem;
+
+    transition: .3s;
+}
+
+.btn-favorito:hover {
+    transform: scale(1.15);
+}
+
+.card-footer-custom {
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: #4284c1;
+
+    font-weight: 600;
+
+    border-top: 1px solid #edf2f7;
+
+    padding-top: 15px;
+}
+
+.card-footer-custom span {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.onlife-footer {
+            background: linear-gradient(135deg,
+                    #63d2c3, #4284c1);
+
+            color: white;
+            padding: 12px 24px;
+            margin-top: 50px;
         }

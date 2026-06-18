@@ -71,19 +71,58 @@ function renderizar() {
     }
 
     filtradas.forEach((n) => {
-        lista.innerHTML += `
-            <div class="col-md-6">
-                <div class="card card-noticia p-3 d-flex justify-content-between" onclick="abrirNoticia(${n.indiceOriginal})">
-                    <div>
-                        <h6>${n.titulo}</h6>
-                        <span class="badge bg-secondary">${n.categoria}</span>
-                    </div>
-                    <button class="btn btn-sm btn-outline-warning mt-2" onclick="event.stopPropagation(); favoritar(${n.indiceOriginal})">
-                        ${n.favorito ? "★" : "☆"}
-                    </button>
+        let icone = "bi-book";
+
+    if (n.categoria === "Saúde Mental") {
+        icone = "bi-heart-pulse";
+    }
+
+    if (n.categoria === "Produtividade") {
+        icone = "bi-lightning-charge";
+    }
+
+    if (n.categoria === "Vício Digital") {
+        icone = "bi-phone";
+    }
+
+    lista.innerHTML += `
+        <div class="col-lg-4 col-md-6">
+            <div class="card-noticia"
+                onclick="abrirNoticia(${n.indiceOriginal})">
+
+                <button
+                    class="btn-favorito"
+                    onclick="event.stopPropagation(); favoritar(${n.indiceOriginal})">
+
+                    ${n.favorito ? "★" : "☆"}
+                </button>
+
+                <div class="categoria-topo">
+                    <i class="bi ${icone}"></i>
+                    <span>${n.categoria}</span>
                 </div>
+
+                <h5>${n.titulo}</h5>
+
+                <p>
+                    ${n.texto.substring(0, 100)}...
+                </p>
+
+                <div class="card-footer-custom">
+                    <span>
+                        <i class="bi bi-clock"></i>
+                        ${n.tempoLeitura || "3 min"}
+                    </span>
+
+                    <span>
+                        Ler mais
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </div>
+
             </div>
-        `;
+        </div>
+    `;
     });
 }
 
