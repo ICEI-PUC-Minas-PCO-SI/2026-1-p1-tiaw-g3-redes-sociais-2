@@ -7,7 +7,7 @@ function carregarDados() {
         const usuario = JSON.parse(dadosSalvos);
         preencherCampos(usuario);
     } else {
-        fetch('assets/data/usuario.json')
+        fetch('../../assets/data/usuario.json')
             .then(function(response) {
                 return response.json();
             })

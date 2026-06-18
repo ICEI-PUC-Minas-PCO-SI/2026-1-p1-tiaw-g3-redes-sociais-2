@@ -4,18 +4,17 @@ fetch("../sidebar/sidebar.html")
 
         document.getElementById("sidebar-container").innerHTML = data;
 
-        const paginaAtual =
-            window.location.pathname.split("/").pop();
+        const paginaAtual = window.location.pathname;
 
-        const links =
-            document.querySelectorAll(".sidebar a");
+        document.querySelectorAll(".sidebar .menu a").forEach(link => {
 
-        links.forEach(link => {
+            const linkURL = new URL(link.href, window.location.origin);
 
-            if(link.getAttribute("href") === paginaAtual){
+            if (linkURL.pathname === paginaAtual) {
                 link.classList.add("active");
             }
 
         });
 
     });
+    
