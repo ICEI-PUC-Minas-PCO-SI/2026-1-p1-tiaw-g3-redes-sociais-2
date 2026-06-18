@@ -3,7 +3,7 @@
 
 h3 {
     color: #093070;
-    border-bottom: 1px solid #c1c1c1;
+
 }
 h4 {
     color: #ff7645;
@@ -293,4 +293,100 @@ li {
     h1 {
         font-size: 30px;
     }
+}
+
+/* Style código add tarefa lucas */
+.registration-container {
+    background: #fff;
+    width: 100%;
+    height: 100%;
+
+    padding: 2rem;
+
+    border: 2px solid #d5d5d5;
+    border-radius: 10px;
+
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
+.input-group {
+    margin-bottom: 24px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    margin-left: 4px;
+}
+
+input {
+    width: 100%;
+    padding: 14px 18px;
+    font-family: var(--font-main);
+    font-size: 15px;
+    background-color: #f8fafc;
+    border: 2px solid transparent;
+    border-radius: 14px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    color: var(--text-main);
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+input:focus {
+    outline: none;
+    background-color: #fff;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+button {
+    font-family: var(--font-main);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-cancel {
+    background-color: transparent;
+    color: var(--text-muted);
+    padding: 12px 20px;
+    border-radius: 12px;
+}
+
+.btn-cancel:hover {
+    color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.btn-add {
+    background-color: #000; /* Botão preto como na imagem */
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 12px;
+}
+
+.btn-add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-add:active {
+    transform: translateY(0);
 }
