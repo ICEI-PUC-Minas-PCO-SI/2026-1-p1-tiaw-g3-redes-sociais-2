@@ -1,4 +1,4 @@
-fetch("modulos/sidebar/sidebar.html")
+fetch("../sidebar/sidebar.html")
     .then(response => response.text())
     .then(data => {
 

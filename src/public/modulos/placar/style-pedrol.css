@@ -1,0 +1,326 @@
+/*pagina*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f2f2f2;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333;
+}
+
+/*titulos*/
+h1 {
+    font-size: 42px;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 24px;
+    color: #777;
+    margin-bottom: 30px;
+    font-weight: normal;
+}
+
+.section-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/*pagina*/
+.perfil-page {
+    width: 100%;
+    padding: 30px;
+}
+
+/*colunas*/
+.perfil-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.left {
+    width: 55%;
+}
+
+.right {
+    width: 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/*perfil*/
+.foto {
+    width: 200px;
+    height: 200px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    background-color: white;
+    margin-bottom: 25px;
+    overflow: hidden;
+}
+
+.foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/*info*/
+.info-box {
+    width: 100%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+/*botoes*/
+.btn-salvar,
+.btn-editar {
+    width: 50%;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+
+/*cards*/
+.card {
+    background-color: white;
+    border: 2px solid #d5d5d5 !important;
+    border-radius: 10px !important;
+    padding: 20px;
+}
+
+.card h3 {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 16px;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card li::before {
+    content: "✓";
+    font-size: 18px;
+    color: #28a745;
+}
+
+.card li:has(input[type="checkbox"])::before {
+    content: "";
+}
+
+/*footer*/
+.footer-icons i {
+    font-size: 20px;
+    margin-left: 12px;
+}
+
+/*responsividade*/
+@media (max-width: 768px) {
+    .perfil-container {
+        flex-direction: column;
+    }
+
+    .left,
+    .right {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+/* ===== PLACAR ===== */
+.placar-page {
+    width: 100%;
+    padding: 30px;
+}
+
+/* ===== PÓDIO ===== */
+.podio {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.podio-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.podio-foto {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ccc;
+    background-color: #eee;
+    display: block;
+}
+
+#podio-1 .podio-foto {
+    width: 90px;
+    height: 90px;
+    border-color: #888;
+}
+
+.podio-nome {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.podio-pts {
+    font-size: 13px;
+    color: #777;
+    text-align: center;
+}
+
+.podio-pedestal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px 6px 0 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    width: 100px;
+}
+
+.pedestal-1 { height: 70px; background-color: #555; }
+.pedestal-2 { height: 50px; background-color: #888; }
+.pedestal-3 { height: 36px; background-color: #aaa; }
+
+/* ===== LISTA COMPLETA ===== */
+.lista-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.lista-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    max-width: 600px;
+}
+
+.lista-rank {
+    font-size: 16px;
+    font-weight: bold;
+    color: #777;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.lista-foto {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    flex-shrink: 0;
+}
+
+.lista-nome {
+    flex: 1;
+    font-size: 16px;
+}
+
+.lista-pts {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    flex-shrink: 0;
+}
+
+/* ===== GERENCIAR GRUPO ===== */
+.gerenciar-grupo {
+    margin-bottom: 30px;
+}
+
+.btn-gerenciar {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+.adicionar-usuario {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.adicionar-usuario input {
+    flex: 1;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 14px;
+}
+
+.adicionar-usuario button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.gerenciar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 16px;
+    margin-bottom: 8px;
+    max-width: 400px;
+}
+
+.gerenciar-row span {
+    font-size: 15px;
+}
+
+.btn-remover {
+    background: none;
+    border: none;
+    color: #cc0000;
+    font-size: 18px;
+    cursor: pointer;
+}

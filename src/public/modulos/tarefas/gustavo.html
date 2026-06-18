@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,62 +14,13 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-  
-  <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2 border-bottom border-dark">
-
-    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-      <img src="assets/images/logo.png" width="50" height="40" class="me-2 mx-3">
-      <span class="fs-2 fw-bold">OnLife</span>
-    </a>
-
-    <div class="col-md-3 text-end pe-4">
-      <button type="button" class="btn btn-dark px-5">
-        Sair
-      </button>
+  <main class="d-flex flex-grow-1">
+    
+    <!-- sidebar -->
+    <div class="col-md-2 p-0">
+      <div id="sidebar-container"></div>
     </div>
 
-  </header>
-
-  <main class="d-flex flex-grow-1">
-
-    
-    <aside>
-
-      <div class="d-flex flex-column flex-shrink-0 p-3 border-end border-dark h-100" style="width: 180px;">
-
-        <ul class="nav nav-pills flex-column mb-auto">
-
-          <li class="nav-item">
-            <a href="#" class="nav-link link-dark">
-              Dashboard
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link active bg-secondary-subtle text-dark">
-              Tarefas
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link link-dark">
-              Cronômetro
-            </a>
-          </li>
-
-          <li class="nav-item">
-            <a href="#" class="nav-link link-dark">
-              Meu Perfil
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-   
     <section class="container-fluid p-5">
 
       <h1 class="fw-bold">Tarefas</h1>
@@ -79,7 +31,7 @@
 
       <div class="row g-4">
 
-        
+
         <div class="col-lg-5">
 
           <div class="card shadow-sm p-4 h-100">
@@ -92,18 +44,13 @@
               Filtrar por data
             </label>
 
-            <input
-              type="date"
-              id="filtroData"
-              class="form-control"
-              onchange="filtrarPorData()"
-            >
+            <input type="date" id="filtroData" class="form-control" onchange="filtrarPorData()">
 
           </div>
 
         </div>
 
-        
+
         <div class="col-lg-7">
 
           <div class="card shadow-sm p-4">
@@ -112,10 +59,7 @@
               Lista de tarefas
             </h2>
 
-            <ul
-              class="list-group"
-              id="listaTarefas"
-            ></ul>
+            <ul class="list-group" id="listaTarefas"></ul>
 
           </div>
 
@@ -128,7 +72,7 @@
   </main>
 
 
-  <footer class="bg-dark text-light py-3 mt-auto px-4">
+  <!-- <footer class="bg-dark text-light py-3 mt-auto px-4">
 
     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
 
@@ -142,9 +86,10 @@
 
     </div>
 
-  </footer>
+  </footer> -->
 
-  <script src="assets/js/script-gustavo.js"></script>
+  <script src="../sidebar/sidebar.js"></script>
 
 </body>
+
 </html>

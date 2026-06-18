@@ -1,6 +1,6 @@
 // ===== CARREGAR DADOS =====
 
-fetch('assets/data/placar.json')
+fetch('../../assets/data/placar.json')
     .then(function(response) {
         return response.json();
     })
@@ -123,7 +123,7 @@ function adicionarUsuario() {
     const novoUsuario = {
         id: Date.now().toString(),
         nome: nome,
-        foto: 'assets/images/default.jpg',
+        foto: '../assets/images/default.jpg',
         pontos: { tempo: 0, tarefas: 0, total: 0 }
     };
 
