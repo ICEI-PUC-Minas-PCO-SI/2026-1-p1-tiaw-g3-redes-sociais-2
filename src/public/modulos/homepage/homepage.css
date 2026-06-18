@@ -1,0 +1,8 @@
+.card-noticia {
+            cursor: pointer;
+            transition: box-shadow 0.15s ease, transform 0.15s ease;
+        }
+        .card-noticia:hover {
+            box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
