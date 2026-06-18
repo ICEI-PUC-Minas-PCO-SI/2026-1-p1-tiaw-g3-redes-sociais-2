@@ -1,0 +1,146 @@
+        body {
+        background: #f4f7fb;
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .sidebar {
+        width: 240px;
+        height: 100vh;
+        position: fixed;
+        left: 0;
+        top: 0;
+
+        display: flex;
+        flex-direction: column;
+
+        background: linear-gradient(
+            180deg,
+            #4284c1 0%,
+            #4ca9cb 50%,
+            #63d2c3 100%
+        );
+
+        color: white;
+
+        box-shadow: 5px 0 25px rgba(0,0,0,.12);
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        padding: 30px 20px;
+
+        border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+
+    .logo img {
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+    }
+
+    .logo h3 {
+        margin: 0;
+        font-weight: 700;
+        letter-spacing: .5px;
+    }
+
+    .menu {
+        padding: 25px 12px;
+        flex: 1;
+    }
+
+    .menu a {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+
+        padding: 14px 18px;
+        margin-bottom: 10px;
+
+        color: white;
+        text-decoration: none;
+
+        border-radius: 14px;
+
+        transition: all .3s ease;
+    }
+
+    .menu a i {
+        font-size: 1.2rem;
+    }
+
+    .menu a:hover {
+        background: rgba(255,255,255,.15);
+        transform: translateX(6px);
+    }
+
+    .menu a.active {
+        background: white;
+        color: #4284c1;
+        font-weight: 600;
+
+        box-shadow:
+            0 8px 20px rgba(255,255,255,.25);
+
+        position: relative;
+    }
+
+    .menu a.active::before {
+        content: "";
+
+        position: absolute;
+        left: -12px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        width: 5px;
+        height: 60%;
+
+        border-radius: 20px;
+
+        background: white;
+    }
+
+    .user-section {
+        padding: 15px;
+    }
+
+    .user-card {
+        background: rgba(255,255,255,.15);
+
+        backdrop-filter: blur(10px);
+
+        border: 1px solid rgba(255,255,255,.15);
+
+        border-radius: 18px;
+
+        padding: 18px;
+    }
+
+    .user-card strong {
+        font-size: 1rem;
+    }
+
+    .user-card small {
+        opacity: .8;
+    }
+
+    .user-card hr {
+        margin: 12px 0;
+        opacity: .25;
+    }
+
+    .user-card a {
+        color: white;
+        text-decoration: none;
+        transition: .3s;
+    }
+
+    .user-card a:hover {
+        opacity: .8;
+    }

@@ -1,0 +1,162 @@
+{
+  "interesses": [
+    {
+      "id": 1,
+      "nome": "Estudos"
+    },
+    {
+      "id": 2,
+      "nome": "Saúde"
+    }
+  ],
+  "redes_sociais": [
+    {
+      "id": 1,
+      "nome": "Instagram"
+    },
+    {
+      "id": 2,
+      "nome": "TikTok"
+    }
+  ],
+  "usuarios": [
+    {
+      "id": 1,
+      "foto_perfil": "/images/users/joao.jpg",
+      "nome": "João Silva",
+      "email": "joao@email.com",
+      "interesses_ids": [
+        1,
+        2
+      ],
+      "redes_sociais_ids": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": 2,
+      "foto_perfil": "/images/users/maria.jpg",
+      "nome": "Maria Fernanda",
+      "email": "maria@email.com",
+      "interesses_ids": [
+        2
+      ],
+      "redes_sociais_ids": [
+        1,
+        2
+      ]
+    }
+  ],
+  "tarefas": [
+    {
+      "id": 1,
+      "id_usuario": 1,
+      "titulo": "Ler um livro",
+      "descricao": "Ler 30 páginas",
+      "tempo_estimado_minutos": 35,
+      "data": "",
+      "prioridade_id": 1,
+      "concluida": false
+    },
+    {
+      "id": 2,
+      "id_usuario": 1,
+      "titulo": "Fazer exercício fisíco",
+      "descricao": "Cardio e musculação",
+      "tempo_estimado_minutos": 60,
+      "data": "",
+      "prioridade_id": 1,
+      "concluida": false
+    }
+  ],
+  "estados_brasil": [
+    {
+      "id": 1,
+      "nome": "Minas Gerais",
+      "sigla": "MG"
+    },
+    {
+      "id": 2,
+      "nome": "Rio de Janeiro",
+      "sigla": "RJ"
+    }
+  ],
+  "locais": [
+    {
+      "id": 1,
+      "nome": "Parque central",
+      "descricao": "Ambiente ideal para caminhadas e contato com a natureza.",
+      "id_estado": 1
+    },
+    {
+      "id": 2,
+      "nome": "Museu",
+      "descricao": "Ambiente ideal para conhecer e entender sobre a arte.",
+      "id_estado": 2
+    }
+  ],
+  "conteudos_recomendados": [
+    {
+      "id": 1,
+      "interesses_id": 1,
+      "titulo": "@devmais",
+      "descricao": "Conteúdos de programação",
+      "link": "instagram.com/devmais"
+    },
+    {
+      "id": 2,
+      "interesses_id": 2,
+      "titulo": "Saúde e bem estar",
+      "descricao": "Site com conteúdos para a saúde do corpo",
+      "link": "www.saudebemestar.com.br"
+    }
+  ],
+  "prioridades": [
+    {
+      "id": 1,
+      "titulo": "Sem prioridade",
+      "descricao": "Verde"
+    },
+    {
+      "id": 2,
+      "titulo": "Importante",
+      "descricao": "Laranja"
+    },
+    {
+      "id": 3,
+      "titulo": "Urgente",
+      "descricao": "Vermelho"
+    }
+  ],
+  "historico_sessoes_cronometro": [
+    {
+      "id": 1,
+      "id_usuario": 1,
+      "id_rede_social": 1,
+      "tempo_gasto_minutos": 45,
+      "data": "2026-05-23"
+    },
+    {
+      "id": 2,
+      "id_usuario": 1,
+      "id_rede_social": 2,
+      "tempo_gasto_minutos": 15,
+      "data": "2026-05-23"
+    }
+  ],
+  "metas_diarias_redes": [
+    {
+      "id": 1,
+      "id_usuario": 1,
+      "id_rede_social": 1,
+      "meta_minutos": 30
+    },
+    {
+      "id": 2,
+      "id_usuario": 1,
+      "id_rede_social": 2,
+      "meta_minutos": 60
+    }
+  ]
+}

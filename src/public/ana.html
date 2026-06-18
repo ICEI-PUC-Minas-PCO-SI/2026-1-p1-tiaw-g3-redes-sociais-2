@@ -10,48 +10,13 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-2  border-bottom border-dark">
-            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-                <img src="assets/images/logo.png" width="50" height="40" class="me-2 mx-3">
-                <span class="fs-2 fw-bold">OnLife</span>
-            </a>
-
-            <div class="col-md-3 text-end pe-4">
-                <button type="button" class="btn btn-dark px-5">Sair</button>
-            </div>
-        </header>
 
         <main class="container-fluid flex-grow-1">
+            <div id="sidebar-container"></div>
             <div class="row h-100">
-                <aside class="col-12 col-md-2">
-                    <div class="d-flex flex-column flex-shrink-0 p-3 border-end border-dark h-100"">
-                
-                    <ul class="nav nav-pills flex-column mb-auto">
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active bg-secondary-subtle text-dark" aria-current="page">
-                        Dashboard
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link link-dark">
-                        Tarefas
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link link-dark">
-                        Cronômetro
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-link link-dark">
-                        Meu Perfil
-                        </a>
-                    </li>
-                    </ul>
-                    
-                </div>
-                </aside>
-
+                <div class="col-md-2 p-0">
+            <div id="sidebar-container"></div>
+        </div>
                 <div class="col-12 col-md-6">
                     <div class="d-flex flex-column m-3">
                         <div>
@@ -93,23 +58,13 @@
             </div>
         </main>
 
-        <footer class="bg-dark text-light py-3 mt-auto px-4">
-            <div class= "d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-                <div>OnLife @ 2026. All rights reserved.</div>
-            <div>
-                <i class="bi bi-youtube"></i>
-                <i class="bi bi-facebook"></i>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-linkedin"></i>
-            </div>
-            </div>
-            
-        </footer>
+        <!-- <div id="footer-container"></div> -->
 
    
     
-
+    <script src="modulos/sidebar/sidebar.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <script src="assets/js/dashboard.js"></script>
+    <!-- <script src="footer.js"></script> -->
 </body>
 </html>
