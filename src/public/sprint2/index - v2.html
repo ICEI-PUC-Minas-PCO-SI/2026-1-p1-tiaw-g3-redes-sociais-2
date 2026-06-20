@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Onlife - Gerenciador de Tarefas</title>
+    <link rel="stylesheet" href="style - v2.css">
+</head>
+<body>
+
+    <div class="app-container">
+        
+        <div class="left-column">
+            
+            <div class="registration-container">
+                <h1 id="formTitle">Adicionar nova tarefa</h1>
+                <p id="formDescription">Preencha os detalhes abaixo para organizar sua rotina.</p>
+
+                <form id="taskForm">
+                    <input type="hidden" id="editingTaskId">
+
+                    <div class="input-group">
+                        <label for="taskName">Nome da Tarefa</label>
+                        <input type="text" id="taskName" placeholder="Ex: Ler um livro" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="taskTime">Tempo estimado (minutos)</label>
+                        <input type="number" id="taskTime" placeholder="Ex: 30" required min="1">
+                    </div>
+
+                    <div class="input-row">
+                        <div class="input-group">
+                            <label for="taskDate">Data da Tarefa</label>
+                            <input type="date" id="taskDate" required>
+                        </div>
+
+                        <div class="input-group">
+                            <label for="taskPriority">Prioridade</label>
+                            <select id="taskPriority" required>
+                                <option value="low">Sem Prioridade (Verde)</option>
+                                <option value="medium">Importante (Laranja)</option>
+                                <option value="high">Urgente (Vermelho)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="button-container">
+                        <button type="button" id="btnCancelEdit" class="btn-cancel" style="display: none;">Cancelar Edição</button>
+                        <button type="reset" id="btnResetForm" class="btn-cancel">Limpar</button>
+                        <button type="submit" id="btnSubmitForm" class="btn-add">Adicionar</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <h2 id="currentMonthYear">Maio 2026</h2>
+                    <div class="calendar-nav">
+                        <button id="prevMonth">&lt;</button>
+                        <button id="nextMonth">&gt;</button>
+                    </div>
+                </div>
+
+                <div class="weekdays">
+                    <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+                </div>
+
+                <div class="calendar-days" id="calendarDays"></div>
+            </div>
+
+        </div>
+
+        <div class="right-column-placeholder">
+            <div class="placeholder-message">
+                <h3>Componente da Equipe</h3>
+                <p>Espaço reservado para a funcionalidade do integrante do grupo (Placar/Cronômetro).</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="taskModal" class="modal-overlay">
+        <div class="modal-card">
+            <div class="modal-header">
+                <h2>Detalhes da Tarefa</h2>
+                <button id="closeModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Nome:</strong> <span id="modalTaskName"></span></p>
+                <p><strong>Duração:</strong> <span id="modalTaskTime"></span> minutos</p>
+                <p><strong>Data:</strong> <span id="modalTaskDate"></span></p>
+                <p><strong>Prioridade:</strong> <span id="modalTaskPriority" class="modal-priority-badge"></span></p>
+            </div>
+            <div class="modal-footer">
+                <button id="btnDeleteTask" class="btn-delete">Excluir</button>
+                <button id="btnEditTask" class="btn-edit">Editar Tarefa</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
