@@ -1,28 +1,28 @@
 cff-version: 1.2.0
 message: "Please cite this software using these metadata."
-title: Coloque aqui o título do seu trabalho
+title: OnLife - Plataforma de Gerenciamento do Uso de Redes Sociais
 authors:
-  - family-names: Sobrenome do aluno 1
-    given-names: Nome do aluno 1
-  - family-names: Sobrenome do aluno 2
-    given-names: Nome do aluno 2
-  - family-names: Sobrenome do aluno 3
-    given-names: Nome do aluno 3
-  - family-names: Sobrenome do aluno 4
-    given-names: Nome do aluno 4
-  - family-names: Sobrenome do aluno 5
-    given-names: Nome do aluno 5
-  - family-names: Sobrenome do aluno 6
-    given-names: Nome do aluno 6
-  - family-names: Sobrenome do(a) professor(a)
-    given-names: Nome do(a) professor(a)
+  - family-names: Santos
+    given-names: Ana Carolina
+  - family-names: Torres
+    given-names: Davi Emanuel
+  - family-names: Braga
+    given-names: Gustavo Afonso
+  - family-names: Komel
+    given-names: Lucas
+  - family-names: Nogueira
+    given-names: Pedro Henrique
+  - family-names: Lemos
+    given-names: Pedro Henrique
+  - family-names: Diniz
+    given-names: Luciana Mara
     name-suffix: "Professor(a)"
     affiliation: PUC Minas
 keywords:
-    - coloque aqui a palavra-chave 1
-    - coloque aqui a palavra-chave 2
-    - coloque aqui a palavra-chave 3
-repository-code: coloque o link do seu repositório
+    - javascript
+    - redes sociais
+    - qualidade de vida
+repository-code: https://github.com/ICEI-PUC-Minas-PCO-SI/2026-1-p1-tiaw-g3-redes-sociais-2
 license: CC-BY-4.0
 version: 1.0.0
-date-released: 2024-09-01 # atualize a data
+date-released: 2026-06-21 
