@@ -1,93 +1,33 @@
-const tarefas = [
-  {
-    id: 1,
-    titulo: "Estudar",
-    data: "2026-05-24",
-    tempo: 60,
-    concluida: false
-  },
-  {
-    id: 2,
-    titulo: "Cozinhar",
-    data: "2026-05-25",
-    tempo: 90,
-    concluida: true
-  },
-  {
-    id: 3,
-    titulo: "Ler um livro",
-    data: "2026-05-26",
-    tempo: 30,
-    concluida: false
-  }
-];
+// ===== SCORE DINÂMICO =====
 
-function renderizarTarefas(lista = tarefas) {
-
-  const ul =
-    document.getElementById("listaTarefas");
-
-  ul.innerHTML = "";
-
-  lista.forEach((tarefa) => {
-
-    ul.innerHTML += `
-
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-
-        <div class="${tarefa.concluida ? 'text-decoration-line-through text-secondary' : ''}">
-
-          <strong>${tarefa.titulo}</strong>
-
-          <br>
-
-          <small>
-            ${tarefa.tempo} minutos
-          </small>
-
-        </div>
-
-        <input
-          type="checkbox"
-          class="form-check-input"
-          ${tarefa.concluida ? "checked" : ""}
-          onchange="toggleConclusao(${tarefa.id})"
-        >
-
-      </li>
-
-    `;
-  });
+function getLabel(pontos) {
+  if (pontos >= 500) return 'Excelente';
+  if (pontos >= 300) return 'Muito Bom';
+  if (pontos >= 150) return 'Bom';
+  if (pontos >=  50) return 'Regular';
+  return 'Iniciante';
 }
 
-function toggleConclusao(id) {
+function atualizarScoreUI() {
+  const pontos = getPontosUsuario(); // vem do score.js
 
-  const tarefa =
-    tarefas.find(t => t.id === id);
+  // número
+  const scoreNumber = document.querySelector('.score-number');
+  if (scoreNumber) scoreNumber.textContent = pontos;
 
-  tarefa.concluida =
-    !tarefa.concluida;
+  // label
+  const scoreLabel = document.querySelector('.score-label');
+  if (scoreLabel) scoreLabel.textContent = getLabel(pontos);
 
-  renderizarTarefas();
-}
-
-function filtrarPorData() {
-
-  const dataFiltro =
-    document.getElementById("filtroData").value;
-
-  if (!dataFiltro) {
-
-    renderizarTarefas();
-    return;
+  // barra SVG (máximo visual = 1000 pontos)
+  const circleProgress = document.querySelector('.circle-progress');
+  if (circleProgress) {
+    const percentual = Math.min(pontos / 1000, 1); // 0 a 1
+    const arco = (percentual * 100).toFixed(1);    // 0 a 100
+    circleProgress.setAttribute('stroke-dasharray', `${arco}, 100`);
   }
 
-  const filtradas =
-    tarefas.filter(
-      tarefa => tarefa.data === dataFiltro
-    );
-
-  renderizarTarefas(filtradas);
+  // badge "+X pts" no footer do score
+  const scoreUp = document.querySelector('.score-up');
+  if (scoreUp) scoreUp.innerHTML = `<i class="bi bi-arrow-up"></i> ${pontos} pts`;
 }
-
-renderizarTarefas();

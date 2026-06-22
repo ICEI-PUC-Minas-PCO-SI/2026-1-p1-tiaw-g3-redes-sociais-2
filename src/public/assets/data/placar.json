@@ -10,7 +10,7 @@
         {
             "id": "01",
             "nome": "Lucas",
-            "foto": "../images/lucas.jpg",
+            "foto": "src/public/assets/images/lucas.jpg",
             "pontos": {
                 "tempo": 120,
                 "tarefas": 80,
@@ -30,7 +30,7 @@
         {
             "id": "03",
             "nome": "Mariana",
-            "foto": "../images/mariana.jpg",
+            "foto": "src/public/assets/images/mariana.jpg",
             "pontos": {
                 "tempo": 200,
                 "tarefas": 60,
