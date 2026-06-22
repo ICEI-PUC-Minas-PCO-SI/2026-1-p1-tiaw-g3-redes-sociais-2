@@ -1,0 +1,330 @@
+/* ===== PERFIL ===== */
+
+:root {
+    --primary: #4284c1;
+    --secondary: #4ca9cb;
+    --accent: #63d2c3;
+    --dark: #1f2937;
+}
+
+.perfil-page {
+    flex: 1;
+    padding: 30px;
+    background: #f8fafc;
+}
+
+.perfil-page h1 {
+    color: var(--primary);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.perfil-page h2 {
+    color: #6b7280;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* ===== LAYOUT ===== */
+
+.perfil-container {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 30px;
+}
+
+/* ===== COLUNA ESQUERDA ===== */
+
+.left {
+    background: white;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.05);
+}
+
+.perfil-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    margin-bottom: 30px;
+}
+
+/* ===== FOTO ===== */
+
+.foto {
+    position: relative;
+}
+
+.foto img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 10px 30px rgba(66,132,193,.18);
+    transition: .3s;
+}
+
+.foto:hover img {
+    transform: scale(1.05);
+}
+
+.foto::after {
+    content: "\F4CA";
+    font-family: bootstrap-icons;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== TÍTULOS ===== */
+
+.section-title {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+.left h6 {
+    color: #9ca3af;
+    font-size: .9rem;
+    margin-bottom: 10px;
+}
+
+/* ===== CAMPOS ===== */
+
+.info-box {
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 14px 18px;
+    margin-bottom: 15px;
+    transition: .3s;
+}
+
+.info-box:hover {
+    border-color: var(--secondary);
+}
+
+/* ===== SCORE ===== */
+
+.score-card {
+    width: 260px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.score-header {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    padding: 15px;
+}
+
+.score-circle {
+    position: relative;
+    width: 180px;
+    margin: 20px auto;
+}
+
+.score-circle svg {
+    width: 100%;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #e5e7eb;
+    stroke-width: 3;
+}
+
+.circle-progress {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 3;
+    stroke-linecap: round;
+}
+
+.score-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.score-label {
+    color: #6b7280;
+}
+
+.score-footer {
+    padding: 15px;
+    text-align: center;
+}
+
+.score-up {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(99,210,195,.15);
+    color: #0f766e;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-weight: 700;
+}
+
+/* ===== BOTÕES ===== */
+
+.btn-editar,
+.btn-salvar {
+    margin-top: 20px;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 22px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-editar {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color: white;
+}
+
+.btn-salvar {
+    background: linear-gradient(
+        135deg,
+        var(--accent),
+        #49c5b5
+    );
+    color: white;
+}
+
+.btn-editar:hover,
+.btn-salvar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(66,132,193,.25);
+}
+
+/* ===== COLUNA DIREITA ===== */
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.right .card {
+    border: none;
+    border-radius: 24px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,.05);
+    padding: 25px;
+    transition: .3s;
+}
+
+.right .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(66,132,193,.12);
+}
+
+.right .card h3 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* ===== LISTAS ===== */
+
+#lista-interesses,
+#lista-redes {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#lista-interesses li,
+#lista-redes li {
+    background: linear-gradient(
+        135deg,
+        rgba(76,169,203,.08),
+        rgba(99,210,195,.12)
+    );
+    border-left: 4px solid var(--accent);
+    padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 12px;
+    transition: .3s;
+}
+
+#lista-interesses li:hover,
+#lista-redes li:hover {
+    transform: translateX(5px);
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 992px) {
+
+    .perfil-container {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-topo {
+        flex-direction: column;
+    }
+
+    .score-card {
+        width: 100%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .perfil-page {
+        padding: 20px;
+    }
+
+    .foto img {
+        width: 130px;
+        height: 130px;
+    }
+
+    .left,
+    .right .card {
+        padding: 20px;
+    }
+
+    .btn-editar,
+    .btn-salvar {
+        width: 100%;
+    }
+}

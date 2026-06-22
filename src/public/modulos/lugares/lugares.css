@@ -1,0 +1,51 @@
+/* ===== PÁGINA LUGARES ===== */
+
+#contador {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 14px;
+
+    display: inline-flex;
+    align-items: center;
+
+    box-shadow:
+        0 6px 20px rgba(0,0,0,.05);
+}
+
+.form-label {
+    color: var(--primary);
+}
+
+.form-check-input {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+.form-check-input:checked {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* cards criados pelo JS */
+
+#lista .card-noticia {
+    min-height: 100%;
+}
+
+#lista .badge {
+    border-radius: 20px;
+    padding: 8px 14px;
+}
+
+#lista .btn-outline-primary {
+    border-radius: 12px;
+}
+
+#lista .btn-outline-primary:hover {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    border-color: transparent;
+}

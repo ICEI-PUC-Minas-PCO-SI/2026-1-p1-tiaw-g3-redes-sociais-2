@@ -14,20 +14,20 @@
 
 <body class="d-flex flex-column min-vh-100">
 
-  <main class="d-flex flex-grow-1">
+  <main class="d-flex flex-grow-1 px-5">
 
     <!-- sidebar -->
     <div class="col-md-2 p-0">
       <div id="sidebar-container"></div>
     </div>
 
-    <section class="container-fluid">
+    <section class="container-fluid px-5 ">
+  
 
-      <h1 class="fw-bold">Tarefas</h1>
-
-      <p class="text-secondary mb-5">
-        Organize suas atividades e acompanhe seu progresso
-      </p>
+      <div class="titulo mt-3">
+                        <h1>Tarefas</h1>
+                        <p>Organize suas atividades e acompanhe seu progresso</p>
+                    </div>
 
       <div class="row g-4">
 
@@ -57,13 +57,16 @@
 
         <div class="col-md-6">
 
-          <div class="card shadow-sm p-4">
-
-            <h2 class="mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h2 class="mb-4">
               Lista de tarefas
             </h2>
 
             <ul class="list-group" id="listaTarefas"></ul>
+            </div>
+
+            
 
           </div>
 

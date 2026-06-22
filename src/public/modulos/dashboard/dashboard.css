@@ -1,0 +1,192 @@
+/* ===== DASHBOARD ===== */
+
+:root {
+    --primary: #4284c1;
+    --secondary: #4ca9cb;
+    --accent: #63d2c3;
+    --dark: #1f2937;
+}
+
+.conteudo-principal{
+    margin-left: 30px;
+    padding: 20px;
+}
+
+/* Saudação */
+.titulo h1 {
+    color: var(--primary);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+h3 + p {
+    color: #6b7280;
+    font-size: 1rem;
+    margin-bottom: 25px;
+}
+
+/* Cards principais */
+.card {
+    border: none;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, .05);
+    transition: .35s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px rgba(66, 132, 193, .12);
+}
+
+.card-body {
+    padding: 28px;
+}
+
+/* Cabeçalhos dos cards */
+.card-title {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.card-title i {
+    color: var(--accent);
+    font-size: 1.2rem;
+}
+
+/* Tempo Hoje */
+#tempo-hoje {
+    color: var(--dark);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Barra de progresso */
+.progress {
+    height: 18px !important;
+    border-radius: 30px;
+    background: #e8eef4;
+    overflow: hidden;
+}
+
+.progress-bar {
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        var(--secondary),
+        var(--accent)
+    );
+    border-radius: 30px;
+    transition: width .5s ease;
+}
+
+/* Filtro */
+#filtro-interesse {
+    border-radius: 14px;
+    border: 2px solid #e5e7eb;
+    padding: 12px;
+    margin-bottom: 20px !important;
+}
+
+#filtro-interesse:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 .25rem rgba(76,169,203,.2);
+}
+
+/* Conteúdos recomendados */
+#conteudos-recomendados {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#conteudos-recomendados > * {
+    background: linear-gradient(
+        135deg,
+        rgba(76,169,203,.08),
+        rgba(99,210,195,.12)
+    );
+    border-left: 5px solid var(--accent);
+    border-radius: 18px;
+    padding: 15px;
+    transition: .3s;
+}
+
+#conteudos-recomendados > *:hover {
+    transform: translateX(5px);
+}
+
+/* Botão sugestão */
+#btn-sugerir {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    border: none;
+    border-radius: 14px;
+    padding: 12px;
+    font-weight: 600;
+}
+
+#btn-sugerir:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(66,132,193,.25);
+}
+
+/* Conteúdo aleatório */
+#conteudo-aleatorio {
+    margin-top: 15px;
+}
+
+#conteudo-aleatorio > * {
+    background: rgba(99,210,195,.1);
+    border: 1px solid rgba(99,210,195,.2);
+    border-radius: 18px;
+    padding: 15px;
+}
+
+/* Espaçamento das colunas */
+.col-md-6 .card,
+.col-md-4 .card {
+    height: fit-content;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+
+    main {
+        padding: 15px;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    h3 + p {
+        text-align: center;
+    }
+
+    #tempo-hoje {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    .card-body {
+        padding: 22px;
+    }
+
+    #btn-sugerir {
+        width: 100%;
+    }
+}
