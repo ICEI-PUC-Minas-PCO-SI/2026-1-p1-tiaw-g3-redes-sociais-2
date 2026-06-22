@@ -1,357 +1,403 @@
-/*pagina*/
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ===== PLACAR ===== */
+
+:root {
+    --primary: #4284c1;
+    --secondary: #4ca9cb;
+    --accent: #63d2c3;
+    --dark: #1f2937;
 }
 
-body {
-    background: #f8fafc;
-    font-family: Arial, Helvetica, sans-serif;
-    color: var(--dark);
-}
-
-/*titulos*/
-h1 {
-    font-size: 42px;
-    color: var(--primary);
-    font-weight: 700;
-}
-
-h2 {
-    color: #6b7280;
-}
-
-.section-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-/*pagina*/
-.perfil-page {
-    width: 100%;
+.placar-page {
+    flex: 1;
     padding: 30px;
+    margin-left: 20px;
 }
 
-/*colunas*/
-.perfil-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
+/* Títulos */
+
+.placar-page h1 {
+    color: var(--primary);
+    font-weight: 800;
+    margin-bottom: 5px;
 }
 
-.left {
-    width: 55%;
+#nome-grupo {
+    color: #6b7280;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
 }
 
-.right {
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
+/* ===== Gerenciar Grupo ===== */
+
+.gerenciar-grupo {
+    margin-bottom: 40px;
 }
 
-/*perfil*/
-.foto {
-    border: 4px solid var(--accent);
-
-    border-radius: 18px;
-
-    box-shadow:
-        0 10px 25px rgba(66,132,193,.15);
-}
-
-.foto img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/*info*/
-.info-box {
-    background: white;
-
-    border: 2px solid #e5e7eb;
-
-    border-radius: 14px;
-
-    transition: .3s;
-}
-
-.info-box:hover {
-    border-color: var(--secondary);
-}
-
-/*botoes*/
-.btn-salvar,
-.btn-editar {
+.btn-gerenciar {
     background: linear-gradient(
         135deg,
         var(--primary),
         var(--secondary)
     );
-
     color: white;
-
     border: none;
-
     border-radius: 14px;
-
+    padding: 12px 24px;
     font-weight: 600;
-
     transition: .3s;
 }
 
-.btn-salvar:hover,
-.btn-editar:hover {
+.btn-gerenciar:hover {
     transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 20px rgba(66,132,193,.25);
+    box-shadow: 0 8px 20px rgba(66,132,193,.25);
 }
 
-
-/*cards*/
-.card {
+#painel-gerenciar {
+    margin-top: 20px;
     background: white;
-    border: none !important;
-    border-radius: 24px !important;
-    padding: 20px;
-
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.05);
-
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-4px);
-
-    box-shadow:
-        0 18px 40px rgba(66,132,193,.12);
-}
-
-.card h3 {
-    margin-bottom: 20px;
-    font-size: 22px;
-}
-
-ul {
-    list-style: none;
-}
-
-li {
-    margin-bottom: 16px;
-    font-size: 18px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.card li::before {
-    content: "✓";
-    font-size: 18px;
-    color: #28a745;
-}
-
-.card li:has(input[type="checkbox"])::before {
-    content: "";
-}
-
-/*footer*/
-.footer-icons i {
-    font-size: 20px;
-    margin-left: 12px;
-}
-
-/*responsividade*/
-@media (max-width: 768px) {
-    .perfil-container {
-        flex-direction: column;
-    }
-
-    .left,
-    .right {
-        width: 100%;
-    }
-
-    h1 {
-        font-size: 30px;
-    }
-}
-
-/* ===== PLACAR ===== */
-.placar-page {
-    width: 100%;
-    padding: 30px;
-}
-
-/* ===== PÓDIO ===== */
-.podio {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 24px;
-    margin-bottom: 40px;
-}
-
-.podio-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-}
-
-.podio-foto {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #ccc;
-    background-color: #eee;
-    display: block;
-}
-
-#podio-1 .podio-foto {
-    width: 90px;
-    height: 90px;
-    border-color: #888;
-}
-
-.podio-nome {
-    font-size: 14px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.podio-pts {
-    font-size: 13px;
-    color: #777;
-    text-align: center;
-}
-
-.podio-pedestal {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 6px 6px 0 0;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    width: 100px;
-}
-
-.pedestal-1 { height: 70px; background-color: #555; }
-.pedestal-2 { height: 50px; background-color: #888; }
-.pedestal-3 { height: 36px; background-color: #aaa; }
-
-/* ===== LISTA COMPLETA ===== */
-.lista-title {
-    font-size: 20px;
-    font-weight: bold;
-    margin-bottom: 16px;
-}
-
-.lista-row {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 10px;
-    max-width: 600px;
-}
-
-.lista-rank {
-    font-size: 16px;
-    font-weight: bold;
-    color: #777;
-    width: 24px;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.lista-foto {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid #ccc;
-    flex-shrink: 0;
-}
-
-.lista-nome {
-    flex: 1;
-    font-size: 16px;
-}
-
-.lista-pts {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
-    flex-shrink: 0;
-}
-
-/* ===== GERENCIAR GRUPO ===== */
-.gerenciar-grupo {
-    margin-bottom: 30px;
-}
-
-.btn-gerenciar {
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px 20px;
-    cursor: pointer;
-    margin-bottom: 16px;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.05);
 }
 
 .adicionar-usuario {
     display: flex;
     gap: 10px;
-    margin-bottom: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
 
 .adicionar-usuario input {
     flex: 1;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px 12px;
-    font-size: 14px;
+    min-width: 220px;
+    border: 2px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 12px;
+    outline: none;
+    transition: .3s;
+}
+
+.adicionar-usuario input:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 .25rem rgba(76,169,203,.15);
 }
 
 .adicionar-usuario button {
-    background-color: #333;
+    background: var(--accent);
     color: white;
     border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    cursor: pointer;
+    border-radius: 14px;
+    padding: 12px 20px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.adicionar-usuario button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99,210,195,.25);
+}
+
+/* ===== Pódio ===== */
+
+.podio {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 25px;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.podio-item {
+    text-align: center;
+    width: 180px;
+}
+
+.podio-foto {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 6px 20px rgba(0,0,0,.1);
+    margin-bottom: 12px;
+}
+
+.podio-nome {
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.podio-pts {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.podio-pedestal {
+    border-radius: 20px 20px 0 0;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.pedestal-1 {
+    height: 180px;
+    background: linear-gradient(
+        180deg,
+        #ffd54f,
+        #f4b400
+    );
+    font-size: 1.6rem;
+}
+
+.pedestal-2 {
+    height: 140px;
+    background: linear-gradient(
+        180deg,
+        #d9d9d9,
+        #bdbdbd
+    );
+    font-size: 1.4rem;
+}
+
+.pedestal-3 {
+    height: 110px;
+    background: linear-gradient(
+        180deg,
+        #d28a52,
+        #b66a32
+    );
+    font-size: 1.2rem;
+}
+
+/* Destacar campeão */
+
+#podio-1 {
+    transform: scale(1.08);
+}
+
+/* ===== Lista Completa ===== */
+
+.lista-title {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#lista-placar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Cada participante */
+
+.usuario-item {
+    background: white;
+    border-radius: 20px;
+    padding: 18px 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .3s;
+}
+
+.usuario-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(66,132,193,.12);
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.usuario-info img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.usuario-nome {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.usuario-pontos {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+/* ===== LISTA DE CLASSIFICAÇÃO ===== */
+
+.lista-title {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#lista-placar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lista-row {
+    background: #fff;
+    border-radius: 20px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.05);
+    transition: .3s ease;
+}
+
+.lista-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(66,132,193,.12);
+}
+
+.lista-rank {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lista-foto {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(99,210,195,.3);
+}
+
+.lista-nome {
+    flex: 1;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.lista-pts {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ===== GERENCIAR GRUPO ===== */
+
+#lista-gerenciar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .gerenciar-row {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 10px 16px;
-    margin-bottom: 8px;
-    max-width: 400px;
+    align-items: center;
+    background: rgba(76,169,203,.08);
+    border-left: 5px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 16px;
 }
 
 .gerenciar-row span {
-    font-size: 15px;
+    font-weight: 600;
+    color: var(--dark);
 }
 
 .btn-remover {
-    background: none;
+    width: 36px;
+    height: 36px;
     border: none;
-    color: #cc0000;
-    font-size: 18px;
+    border-radius: 50%;
+    background: #ef4444;
+    color: white;
+    font-weight: bold;
     cursor: pointer;
+    transition: .3s;
 }
+
+.btn-remover:hover {
+    transform: scale(1.08);
+    background: #dc2626;
+}
+
+/* Top 3 destacados na lista */
+
+.lista-row:nth-child(1) .lista-rank {
+    background: linear-gradient(135deg, #ffd54f, #f4b400);
+}
+
+.lista-row:nth-child(2) .lista-rank {
+    background: linear-gradient(135deg, #d9d9d9, #bdbdbd);
+}
+
+.lista-row:nth-child(3) .lista-rank {
+    background: linear-gradient(135deg, #d28a52, #b66a32);
+}
+
+/* ===== Responsivo ===== */
+
+@media (max-width: 768px) {
+
+    .placar-page {
+        padding: 20px;
+        margin-left: 0;
+    }
+
+    .placar-page h1,
+    #nome-grupo {
+        text-align: center;
+    }
+
+    .podio {
+        gap: 15px;
+    }
+
+    .podio-item {
+        width: 140px;
+    }
+
+    .pedestal-1 {
+        height: 140px;
+    }
+
+    .pedestal-2 {
+        height: 110px;
+    }
+
+    .pedestal-3 {
+        height: 90px;
+    }
+
+    .usuario-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .usuario-info {
+        flex-direction: column;
+    }
+}
+

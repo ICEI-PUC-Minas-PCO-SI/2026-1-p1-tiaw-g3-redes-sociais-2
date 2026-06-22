@@ -1,6 +1,6 @@
 // ===== CARREGAR DADOS =====
 
-fetch('../../assets/data/placar.json')
+fetch('placar.json')
     .then(function(response) {
         return response.json();
     })

@@ -10,7 +10,7 @@
         {
             "id": "01",
             "nome": "Lucas",
-            "foto": "src/public/assets/images/lucas.jpg",
+            "foto": "../../assets/images/lucas.jpg",
             "pontos": {
                 "tempo": 120,
                 "tarefas": 80,
@@ -20,7 +20,7 @@
         {
             "id": "02",
             "nome": "Juliana",
-            "foto": "../images/juliana.jpg",
+            "foto": "../../assets/images/juliana.jpg",
             "pontos": {
                 "tempo": 90,
                 "tarefas": 150,
@@ -30,7 +30,7 @@
         {
             "id": "03",
             "nome": "Mariana",
-            "foto": "src/public/assets/images/mariana.jpg",
+            "foto": "../../assets/images/mariana.jpg",
             "pontos": {
                 "tempo": 200,
                 "tarefas": 60,
@@ -40,7 +40,7 @@
         {
             "id": "04",
             "nome": "Maria",
-            "foto": "../images/maria.jpg",
+            "foto": "../../assets/images/maria.jpg",
             "pontos": {
                 "tempo": 60,
                 "tarefas": 120,
@@ -50,7 +50,7 @@
         {
             "id": "05",
             "nome": "João",
-            "foto": "../images/joao.jpg",
+            "foto": "../../assets/images/joao.jpg",
             "pontos": {
                 "tempo": 150,
                 "tarefas": 40,
