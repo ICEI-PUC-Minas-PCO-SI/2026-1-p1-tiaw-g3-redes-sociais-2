@@ -12,7 +12,6 @@ function carregarDados() {
                 return response.json();
             })
             .then(function(usuario) {
-                // CORRIGIDO: salva o JSON no LocalStorage logo na primeira carga
                 localStorage.setItem('usuario', JSON.stringify(usuario));
                 preencherCampos(usuario);
             });
@@ -33,9 +32,11 @@ function preencherCampos(usuario) {
         document.getElementById('foto-perfil').src = usuario.foto;
     }
 
-    // NOVO: renderiza os itens selecionados nos cards
-    renderizarLista('lista-interesses', usuario.interesses_selecionados);
-    renderizarLista('lista-redes', usuario.redes_selecionadas);
+    renderizarLista('lista-interesses', usuario.interesses_selecionados ?? []);
+    renderizarLista('lista-redes', usuario.redes_selecionadas ?? []);
+
+    // atualiza o score após carregar os dados do usuário
+    atualizarScoreUI();
 }
 
 
@@ -43,7 +44,7 @@ function preencherCampos(usuario) {
 
 function renderizarLista(idLista, itensSelecionados) {
     const lista = document.getElementById(idLista);
-    lista.innerHTML = ''; // limpa a lista antes de preencher
+    lista.innerHTML = '';
 
     itensSelecionados.forEach(function(item) {
         lista.innerHTML += `<li>${item}</li>`;
@@ -91,14 +92,12 @@ document.getElementById('input-foto').addEventListener('change', function() {
 // ===== EDITAR =====
 
 function ativarEdicao() {
-    // info-boxes viram inputs
     const infoBoxes = document.querySelectorAll('.info-box');
     infoBoxes.forEach(function(box) {
         const textoAtual = box.textContent.trim();
         box.innerHTML = `<input type="text" value="${textoAtual}" style="border:none; outline:none; width:100%; background:transparent;">`;
     });
 
-    // CORRIGIDO: busca os dados do LocalStorage OU do JSON
     const dadosSalvos = localStorage.getItem('usuario');
 
     if (dadosSalvos) {
@@ -110,7 +109,6 @@ function ativarEdicao() {
         document.getElementById('btn-salvar').style.display = 'inline-block';
 
     } else {
-        // se não tiver no LocalStorage, busca do JSON
         fetch('assets/data/usuario.json')
             .then(function(response) {
                 return response.json();
@@ -129,22 +127,18 @@ function ativarEdicao() {
 // ===== SALVAR =====
 
 function salvarEdicao() {
-    // salva info-boxes
     const infoBoxes = document.querySelectorAll('.info-box');
     infoBoxes.forEach(function(box) {
         const novoValor = box.querySelector('input').value;
         box.textContent = novoValor;
     });
 
-    // NOVO: lê os checkboxes marcados
     const interessesMarcados = lerCheckboxesMarcados('lista-interesses');
     const redesMarcadas = lerCheckboxesMarcados('lista-redes');
 
-    // volta para modo visualização
     renderizarLista('lista-interesses', interessesMarcados);
     renderizarLista('lista-redes', redesMarcadas);
 
-    // monta o objeto e salva no LocalStorage
     const dadosSalvos = localStorage.getItem('usuario');
     const usuarioAtual = dadosSalvos ? JSON.parse(dadosSalvos) : {};
 
