@@ -32,7 +32,7 @@
         justify-content: center;
         gap: 12px;
 
-        padding: 18px 20px;
+        padding: 5px;
 
         border-bottom: 1px solid rgba(255,255,255,.15);
     }
@@ -50,7 +50,7 @@
     }
 
     .menu {
-        padding: 25px 12px;
+        padding: 5px;
         flex: 1;
     }
 
@@ -108,7 +108,7 @@
     }
 
     .user-section {
-        padding: 15px;
+        padding: 10px;
     }
 
     .user-card {
