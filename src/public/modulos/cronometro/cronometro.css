@@ -7,6 +7,11 @@
     --dark: #1f2937;
 }
 
+.conteudo-principal{
+    flex: 1;
+    padding: 30px;
+}
+
 body {
     background: #f8fafc;
 }

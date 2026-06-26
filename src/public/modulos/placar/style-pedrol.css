@@ -7,11 +7,16 @@
     --dark: #1f2937;
 }
 
-.placar-page {
+.conteudo-principal{
+    flex: 1;
+    padding: 30px;
+}
+
+/* .placar-page {
     flex: 1;
     padding: 30px;
     margin-left: 20px;
-}
+} */
 
 /* Títulos */
 

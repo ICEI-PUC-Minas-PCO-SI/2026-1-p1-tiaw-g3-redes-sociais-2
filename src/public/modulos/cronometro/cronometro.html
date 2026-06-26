@@ -1,119 +1,212 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnLife - Cronômetro & Metas</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="cronometro.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
-    
+
     <main class="d-flex flex-grow-1">
 
-        <!-- sidebar -->
+        <!-- Sidebar -->
         <div class="col-md-2 p-0">
-                <div id="sidebar-container"></div>
+            <div id="sidebar-container"></div>
         </div>
 
-        <div id="page-content-wrapper">
-            <div class="container-fluid px-5">
-                
-                <div class="row mb-4">
+        <!-- Conteúdo -->
+        <div class="conteudo-principal">
 
-                    <div class="titulo">
-                        <h1>Cronômetro</h1>
-                        <p>onitore seu uso diário e controle seus limites de navegação</p>
+            <div class="titulo mb-4">
+                <h1>Cronômetro</h1>
+                <p>Monitore seu uso diário e controle seus limites de navegação</p>
+            </div>
+
+            <div class="row g-4">
+
+                <!-- Cronômetro -->
+                <div class="col-12 col-lg-6">
+
+                    <div class="card h-100">
+
+                        <div class="card-body text-center d-flex flex-column justify-content-center align-items-center">
+
+                            <h3 class="card-title h4 fw-bold mb-4">
+                                Cronômetro
+                            </h3>
+
+                            <div class="mb-4 w-100">
+                                <select id="social-select"
+                                    class="form-select form-select-lg mx-auto"
+                                    style="max-width:320px;">
+
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="WhatsApp">WhatsApp</option>
+                                    <option value="TikTok">TikTok</option>
+
+                                </select>
+                            </div>
+
+                            <div class="display-1 fw-bold text-dark my-4"
+                                id="timer-display">
+                                00:00
+                            </div>
+
+                            <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+
+                                <button id="btn-start"
+                                    class="btn btn-success btn-lg px-5 fw-semibold">
+                                    Iniciar
+                                </button>
+
+                                <button id="btn-reset"
+                                    class="btn btn-outline-secondary btn-lg px-5 fw-semibold">
+                                    Resetar
+                                </button>
+
+                            </div>
+
+                        </div>
+
                     </div>
+
                 </div>
 
-                <div class="row">
-                    <div class="col-lg-6 mb-4">
-                        <div class="card p-4 shadow-sm border-0 h-100 bg-white text-center d-flex flex-column justify-content-center align-items-center">
-                            <div class="card-body w-100">
-                                <h3 class="card-title h4 fw-bold mb-4">Cronômetro</h3>
-                                
-                                <div class="mb-4">
-                                    <select id="social-select" class="form-select form-select-lg mx-auto" style="max-width: 320px;">
-                                        <option value="Instagram">Instagram</option>
-                                        <option value="Facebook">Facebook</option>
-                                        <option value="WhatsApp">WhatsApp</option>
-                                        <option value="TikTok">TikTok</option>
-                                    </select>
-                                </div>
+                <!-- Sessões -->
+                <div class="col-12 col-lg-6">
 
-                                <div class="display-1 fw-bold text-dark my-4" id="timer-display">00:00</div>
+                    <div class="card h-100">
 
-                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                                    <button id="btn-start" class="btn btn-success btn-lg px-5 fw-semibold">Iniciar</button>
-                                    <button id="btn-reset" class="btn btn-outline-secondary btn-lg px-5 fw-semibold">Resetar</button>
-                                </div>
-                            </div>
+                        <div class="card-body">
+
+                            <h3 class="card-title h4 fw-bold mb-3">
+                                Sessões Recentes
+                            </h3>
+
+                            <ul id="history-list"
+                                class="list-group list-group-flush overflow-auto"
+                                style="max-height:260px;">
+                            </ul>
+
                         </div>
+
                     </div>
 
-                    <div class="col-lg-6 mb-4">
-                        <div class="card p-4 shadow-sm border-0 h-100 bg-white">
-                            <div class="card-body">
-                                <h3 class="card-title h4 fw-bold mb-3">Sessões Recentes</h3>
-                                <ul id="history-list" class="list-group list-group-flush overflow-auto" style="max-height: 260px;">
-                                    </ul>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
-                <div class="row mt-2">
-                    
-                    <div class="col-lg-5 mb-4">
-                        <div class="card p-4 shadow-sm border-0 h-100 bg-white">
-                            <div class="card-body">
-                                <h3 class="card-title h4 fw-bold mb-3">Definir Limite Diário</h3>
-                                <p class="text-muted small">Escolha uma plataforma e defina o tempo máximo recomendado em minutos.</p>
-                                
-                                <div class="mb-3">
-                                    <label for="meta-social-select" class="form-label small fw-bold text-secondary">Rede Social</label>
-                                    <select id="meta-social-select" class="form-select">
-                                        <option value="Instagram">Instagram</option>
-                                        <option value="Facebook">Facebook</option>
-                                        <option value="WhatsApp">WhatsApp</option>
-                                        <option value="TikTok">TikTok</option>
-                                    </select>
-                                </div>
+            </div>
 
-                                <div class="mb-4">
-                                    <label for="meta-input" class="form-label small fw-bold text-secondary">Tempo Máximo (Minutos)</label>
-                                    <input type="number" id="meta-input" class="form-control" placeholder="Ex: 30, 45, 60">
-                                </div>
+            <div class="row g-4 mt-1">
 
-                                <button id="btn-salvar-meta" class="btn btn-primary w-100 fw-semibold py-2">Definir Meta</button>
+                <!-- Definir Meta -->
+                <div class="col-12 col-lg-5">
+
+                    <div class="card h-100">
+
+                        <div class="card-body">
+
+                            <h3 class="card-title h4 fw-bold mb-3">
+                                Definir Limite Diário
+                            </h3>
+
+                            <p class="text-muted small">
+                                Escolha uma plataforma e defina o tempo máximo recomendado em minutos.
+                            </p>
+
+                            <div class="mb-3">
+
+                                <label for="meta-social-select"
+                                    class="form-label small fw-bold text-secondary">
+                                    Rede Social
+                                </label>
+
+                                <select id="meta-social-select"
+                                    class="form-select">
+
+                                    <option value="Instagram">Instagram</option>
+                                    <option value="Facebook">Facebook</option>
+                                    <option value="WhatsApp">WhatsApp</option>
+                                    <option value="TikTok">TikTok</option>
+
+                                </select>
+
                             </div>
+
+                            <div class="mb-4">
+
+                                <label for="meta-input"
+                                    class="form-label small fw-bold text-secondary">
+                                    Tempo Máximo (Minutos)
+                                </label>
+
+                                <input type="number"
+                                    id="meta-input"
+                                    class="form-control"
+                                    placeholder="Ex: 30, 45, 60">
+
+                            </div>
+
+                            <button id="btn-salvar-meta"
+                                class="btn btn-primary w-100 fw-semibold py-2">
+                                Definir Meta
+                            </button>
+
                         </div>
+
                     </div>
 
-                    <div class="col-lg-7 mb-4">
-                        <div class="card p-4 shadow-sm border-0 h-100 bg-white">
-                            <div class="card-body">
-                                <h3 class="card-title h4 fw-bold mb-3">Painel de Controlo de Metas</h3>
-                                
-                                <div class="alert alert-secondary py-2 text-center mb-4" id="tempo-total-box" style="border-radius: 6px;">
-                                    <span class="text-dark">Tempo Total de Uso Hoje: </span>
-                                    <span id="tempo-total-geral" class="fw-bold text-primary">00h 00min</span>
-                                </div>
+                </div>
 
-                                <div id="dashboard-graficos">
-                                    </div>
+                <!-- Painel -->
+                <div class="col-12 col-lg-7">
+
+                    <div class="card h-100">
+
+                        <div class="card-body">
+
+                            <h3 class="card-title h4 fw-bold mb-3">
+                                Painel de Controlo de Metas
+                            </h3>
+
+                            <div class="alert alert-secondary py-2 text-center mb-4"
+                                id="tempo-total-box"
+                                style="border-radius:6px;">
+
+                                <span class="text-dark">
+                                    Tempo Total de Uso Hoje:
+                                </span>
+
+                                <span id="tempo-total-geral"
+                                    class="fw-bold text-primary">
+                                    00h 00min
+                                </span>
+
                             </div>
+
+                            <div id="dashboard-graficos"></div>
+
                         </div>
+
                     </div>
 
-                </div> </div>
+                </div>
+
+            </div>
+
         </div>
+
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="cronometro.js"></script>
     <script src="../sidebar/sidebar.js"></script>
+
 </body>
-</html># Sprint 1
+
+</html>

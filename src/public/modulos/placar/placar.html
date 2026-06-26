@@ -1,11 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placar - OnLife</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
     <link rel="stylesheet" href="style-pedrol.css">
 </head>
 
@@ -13,65 +21,92 @@
 
     <main class="d-flex flex-grow-1">
 
-        <!-- sidebar -->
+        <!-- Sidebar -->
         <div class="col-md-2 p-0">
             <div id="sidebar-container"></div>
         </div>
 
-        <section class="placar-page conteudo-principal">
+        <!-- Conteúdo -->
+        <div class="conteudo-principal placar-page">
 
-            <h1>Placar</h1>
+            <div class="titulo mb-4">
+                <h1>Placar</h1>
+                <p>Acompanhe o desempenho dos participantes do grupo.</p>
+            </div>
+
             <h2 id="nome-grupo">Carregando...</h2>
 
-            <!-- GERENCIAR GRUPO -->
+            <!-- Gerenciar Grupo -->
             <div class="gerenciar-grupo">
-                <button id="btn-gerenciar" class="btn-gerenciar" onclick="toggleGerenciar()">Gerenciar Grupo</button>
-                
-                <div id="painel-gerenciar" style="display: none;">
-                    
+
+                <button
+                    id="btn-gerenciar"
+                    class="btn-gerenciar"
+                    onclick="toggleGerenciar()">
+                    Gerenciar Grupo
+                </button>
+
+                <div id="painel-gerenciar" style="display:none;">
+
                     <div class="adicionar-usuario">
-                        <input type="text" id="input-nome" placeholder="Nome do usuário">
-                        <button onclick="adicionarUsuario()">Adicionar</button>
+                        <input
+                            type="text"
+                            id="input-nome"
+                            placeholder="Nome do usuário">
+
+                        <button onclick="adicionarUsuario()">
+                            Adicionar
+                        </button>
                     </div>
 
                     <div id="lista-gerenciar"></div>
 
                 </div>
+
             </div>
 
-            <!-- PÓDIO -->
+            <!-- Pódio -->
             <div class="podio">
+
                 <div class="podio-item" id="podio-2">
                     <img class="podio-foto" id="foto-2" src="" alt="">
                     <div class="podio-nome" id="nome-2"></div>
                     <div class="podio-pts" id="pts-2"></div>
                     <div class="podio-pedestal pedestal-2">2º</div>
                 </div>
+
                 <div class="podio-item" id="podio-1">
                     <img class="podio-foto" id="foto-1" src="" alt="">
                     <div class="podio-nome" id="nome-1"></div>
                     <div class="podio-pts" id="pts-1"></div>
                     <div class="podio-pedestal pedestal-1">1º</div>
                 </div>
+
                 <div class="podio-item" id="podio-3">
                     <img class="podio-foto" id="foto-3" src="" alt="">
                     <div class="podio-nome" id="nome-3"></div>
                     <div class="podio-pts" id="pts-3"></div>
                     <div class="podio-pedestal pedestal-3">3º</div>
                 </div>
+
             </div>
 
-            <!-- LISTA COMPLETA -->
-            <h3 class="lista-title">Classificação completa</h3>
+            <!-- Lista -->
+            <h3 class="lista-title mt-5">
+                Classificação completa
+            </h3>
+
             <div id="lista-placar"></div>
 
-        </section>
+        </div>
 
     </main>
-<!-- 
+
+    <!--
     <footer class="bg-dark text-light py-3 mt-auto px-4">
         <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
             <div>OnLife &copy; 2026. All rights reserved.</div>
+
             <div class="footer-icons">
                 <i class="bi bi-youtube"></i>
                 <i class="bi bi-facebook"></i>
@@ -79,10 +114,16 @@
                 <i class="bi bi-linkedin"></i>
             </div>
         </div>
-    </footer> -->
+    </footer>
+    -->
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
     <script src="placar.js"></script>
     <script src="../sidebar/sidebar.js"></script>
+
 </body>
+
 </html>

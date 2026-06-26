@@ -8,8 +8,8 @@
 }
 
 .conteudo-principal{
-    margin-left: 30px;
-    padding: 20px;
+    flex: 1;
+    padding: 30px;
 }
 
 /* Saudação */

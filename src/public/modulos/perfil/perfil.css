@@ -7,11 +7,16 @@
     --dark: #1f2937;
 }
 
-.perfil-page {
+.conteudo-principal{
+    flex: 1;
+    padding: 30px;
+}
+
+/* .perfil-page {
     flex: 1;
     padding: 30px;
     background: #f8fafc;
-}
+} */
 
 .perfil-page h1 {
     color: var(--primary);
