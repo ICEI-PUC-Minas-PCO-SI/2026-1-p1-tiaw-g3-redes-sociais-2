@@ -7,6 +7,10 @@
     --dark: #1f2937;
 }
 
+body {
+    visibility: hidden;
+}
+
 /* Área principal */
 main section.container-fluid {
     margin-left: 30px;
