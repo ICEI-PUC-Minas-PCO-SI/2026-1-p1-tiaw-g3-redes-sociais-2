@@ -44,18 +44,19 @@ function cadastroUser(login, nome, email, senha){
 
     usuarios.push({
         id: usuarios.length + 1,
+        foto: "../../assets/images/users/default.png",
         nome: nome,
         login: login,
         email: email,
         senha: senha,
-        admin: false,
-        favoritos: []
+        interesses_ids: [],
+        redes_sociais: []
     });
 
     salvarUsuarios(usuarios);
 
     alert('Cadastro feito com sucesso!');
-    location.href = 'login.html'
+    location.href = '../../modulos/login/login.html'
 }
 
 function logoutUser(){
