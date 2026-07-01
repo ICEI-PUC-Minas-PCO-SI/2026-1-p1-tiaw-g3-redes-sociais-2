@@ -431,35 +431,42 @@ if(!localStorage.getItem("historico_sessoes_cronometro")){
             "id_usuario": 1,
             "id_rede_social": 1,
             "tempo_gasto_minutos": 45,
-            "data": "2026-05-23"
+            "data": "2026-07-01"
         },
         {
             "id": 2,
             "id_usuario": 1,
             "id_rede_social": 2,
             "tempo_gasto_minutos": 15,
-            "data": "2026-05-23"
+            "data": "2026-07-01"
         },
         {
             "id":3,
             "id_usuario":2,
             "id_rede_social":1,
             "tempo_gasto_minutos":70,
-            "data":"2026-05-24"
+            "data":"2026-07-01"
         },
         {
             "id":4,
             "id_usuario":3,
             "id_rede_social":2,
             "tempo_gasto_minutos":20,
-            "data":"2026-05-24"
+            "data":"2026-07-01"
         },
         {
             "id":5,
             "id_usuario":4,
             "id_rede_social":4,
             "tempo_gasto_minutos":35,
-            "data":"2026-05-25"
+            "data":"2026-07-01"
+        },
+        {
+            "id":6,
+            "id_usuario":1,
+            "id_rede_social":4,
+            "tempo_gasto_minutos":35,
+            "data":"2026-07-01"
         }
   ];
 

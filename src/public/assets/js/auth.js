@@ -62,5 +62,5 @@ function cadastroUser(login, nome, email, senha){
 function logoutUser(){
     sessionStorage.clear();
 
-    location.href = "login.html";
+    location.href = "../login/login.html";
 }

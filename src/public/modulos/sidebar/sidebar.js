@@ -16,6 +16,11 @@ fetch("../sidebar/sidebar.html")
 
         });
 
+        document.getElementById("btnLogout").addEventListener("click", function (event) {
+        event.preventDefault();
+        logoutUser();
+    });
+
         document.body.style.visibility = "visible";
 
     });

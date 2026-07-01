@@ -1,270 +1,98 @@
-window.addEventListener("load", function () {
+function getUsuarioLogado(){
 
-    inicializarDados();
-    carregarTempoHoje();
-    carregarInteresses();
-    carregarConteudos();
+    return JSON.parse(
+        sessionStorage.getItem("usuario")
+    ) || null;
 
-});
-
-//insere os dados no LocalStorage
-
-function inicializarDados() {
-    //uso de redes sociais
-    const dadosExemplo = {
-            usuario_id: 1,
-            data_referencia: "2026-05-22",
-
-            uso_por_plataforma: [
-                { rede_id: 1, minutos: 90 },
-                { rede_id: 2, minutos: 50 },
-                { rede_id: 3, minutos: 20 }
-            ]
-        };
-
-        localStorage.setItem(
-            "uso_redes",
-            JSON.stringify(dadosExemplo)
-        );
-    
-
-    //usuário
-        const dadosExemploUsuario = {
-            id: 1,
-            foto_perfil: "/images/users/joao.jpg",
-            nome: "João Silva",
-            email: "joao@email.com",
-            interesses_ids: [1,2],
-            redes_sociais_ids: [1, 2]
-        };
-
-        localStorage.setItem(
-            "usuario",
-            JSON.stringify(dadosExemploUsuario)
-        );
-    
-
-    //interesses
-        const interessesExemplo = {
-            interesses: [
-                {
-                    id: 1,
-                    nome: "Estudos"
-                },
-                {
-                    id: 2,
-                    nome: "Saúde"
-                }
-            ]
-        };
-
-        localStorage.setItem(
-            "interesses",
-            JSON.stringify(interessesExemplo)
-        );
-
-
-    //redes sociais
-        const redesExemplo = {
-            redes_sociais: [
-                {
-                    id: 1,
-                    nome: "Instagram"
-                },
-                {
-                    id: 2,
-                    nome: "TikTok"
-                },
-                {
-                    id: 3,
-                    nome: "YouTube"
-                }
-            ]
-        };
-
-        localStorage.setItem(
-            "redes_sociais",
-            JSON.stringify(redesExemplo)
-        );
-
-    //conteúdos recomendados
-
-        const dadosExemploConteudos = {
-            conteudos_recomendados: [
-                {
-                    id: 1,
-                    interesses_id: 1,
-                    titulo: "@devmais",
-                    descricao: "Conteúdos de programação",
-                    link: "instagram.com/devmais"
-                },
-                {
-                    id: 2,
-                    interesses_id: 2,
-                    titulo: "Saúde e bem estar",
-                    descricao: "Site com conteúdos para a saúde do corpo",
-                    link: "www.saudebemestar.com.br"
-                },
-                {
-                    id: 3,
-                    interesses_id: 2,
-                    titulo: "Mais Você",
-                    descricao: "Perfil com dicas para a saúde",
-                    link: "instagram.com/maisvoce"
-                }
-            ]
-        };
-
-        localStorage.setItem(
-            "conteudos_recomendados",
-            JSON.stringify(dadosExemploConteudos)
-        );
-    
 }
 
+function calcularTempoHoje(){
 
+    const usuario = getUsuarioLogado();
 
-function carregarTempoHoje() {
+    if(!usuario){
+        return 0;
+    }
 
-    const dadosSalvos = JSON.parse(
-        localStorage.getItem("uso_redes")
-    );
+    const historico = getHistoricoCronometro();
 
-    let totalMinutos = 0;
+    const hoje = new Date()
+        .toISOString()
+        .split("T")[0];
 
-    dadosSalvos.uso_por_plataforma.forEach(plataforma => {
-        totalMinutos += plataforma.minutos;
+    const sessoesHoje = historico.filter(sessao => {
+
+        return (
+            sessao.id_usuario === usuario.id &&
+            sessao.data === hoje
+        );
+
     });
 
-    const horas = Math.floor(totalMinutos / 60);
-    const minutos = totalMinutos % 60;
-
-    document.getElementById("tempo-hoje").innerText =
-        `${horas} h ${minutos} m`;
-
-    const porcentagem =
-        (totalMinutos / (24 * 60)) * 100;
-
-    document.getElementById("barra-progresso")
-        .style.width = `${porcentagem}%`;
 
 
-    document.getElementById("barra-progresso")
-        .setAttribute("aria-valuenow", porcentagem);
+    const totalMinutos = sessoesHoje.reduce((total, sessao)=>{
+
+        return total + sessao.tempo_gasto_minutos;
+
+    },0);
+
+    return totalMinutos;
+
 }
 
+function formatarTempo(minutos){
 
-function carregarInteresses() {
-    const dadosSalvosInteresses = JSON.parse(
-        localStorage.getItem("interesses")
-    );
+    const horas = Math.floor(minutos / 60);
 
-    const dadosSalvosUsuario = JSON.parse(
-        localStorage.getItem("usuario")
-    );
+    const minutosRestantes = minutos % 60;
 
-    const selectInteresse =
-        document.getElementById("filtro-interesse");
 
-    const interessesUsuario =
-        dadosSalvosInteresses.interesses.filter(
-            interesse =>
-                dadosSalvosUsuario.interesses_ids.includes(
-                    interesse.id
-                )
-        );
+    return `${horas} h ${minutosRestantes} m`;
 
-    interessesUsuario.forEach(interesse => {
-
-        selectInteresse.innerHTML += `
-            <option value="${interesse.id}">
-                ${interesse.nome}
-            </option>
-        `;
-
-    });
 }
 
-//função para exibir os conteúdos 
+function atualizarTempoHoje(){
 
-function exibirConteudo(listaConteudos){
-    let html = "";
+    const elementoTempo = document.getElementById("tempo-hoje");
 
-    listaConteudos.forEach(conteudo => {
-        html += `
-            <div class="card mb-2">
-                <div class="card-body">
-                    <h6>${conteudo.titulo}</h6>
-                    <p>${conteudo.descricao}</p>
-                </div>
-            </div>
-        `;
-    });
+    const barra = document.getElementById("barra-progresso");
 
-    document.getElementById("conteudos-recomendados").innerHTML = html;
-}
-
-function carregarConteudos() {
-    const dadosSalvosUsuario = JSON.parse(
-        localStorage.getItem("usuario")
-    );
-
-    const dadosSalvosConteudos = JSON.parse(
-        localStorage.getItem("conteudos_recomendados")
-    );
-
-    if (dadosSalvosUsuario.interesses_ids.length === 0) {
-
-        document.getElementById(
-            "conteudos-recomendados"
-        ).innerHTML = `
-            <p>
-                Você não possui interesses cadastrados.
-            </p>
-        `;
-
+    if(!elementoTempo || !barra){
         return;
     }
 
-    const conteudosFiltrados =
-        dadosSalvosConteudos.conteudos_recomendados.filter(
-            conteudo =>
-                dadosSalvosUsuario.interesses_ids.includes(
-                    conteudo.interesses_id
-                )
-        );
+    const minutosHoje = calcularTempoHoje();
 
-    exibirConteudo(conteudosFiltrados);
+    elementoTempo.innerText = formatarTempo(minutosHoje);
 
-    document.getElementById("filtro-interesse").addEventListener("change", function () {
-        
-        if(this.value === "todos"){
-            exibirConteudo(conteudosFiltrados);
-            return;
-        }
+    // Limite usado para preencher a barra
+    // 240 minutos = 4 horas
+    const limiteDiario = 240;
 
-        const resultado = conteudosFiltrados.filter(conteudo => conteudo.interesses_id == this.value);
+    let porcentagem = 
+        (minutosHoje / limiteDiario) * 100;
 
-        exibirConteudo(resultado);
+
+    if(porcentagem > 100){
+        porcentagem = 100;
     }
+
+    barra.style.width = `${porcentagem}%`;
+
+    barra.setAttribute(
+        "aria-valuenow",
+        porcentagem
     );
 
-    document.getElementById("btn-sugerir").addEventListener("click", function (){
-        
-        const todosConteudos = dadosSalvosConteudos.conteudos_recomendados;
-
-        const indice = Math.floor(Math.random() * todosConteudos.length);
-
-        document.getElementById("conteudo-aleatorio").innerHTML = `
-            <div class="card mt-2">
-                <div class="card-body">
-                    <h6>${todosConteudos[indice].titulo}</h6>
-                    <p>${todosConteudos[indice].descricao}</p>
-                </div>
-            </div>
-        `;
-        
-    });
-
 }
+
+document.addEventListener(
+    "DOMContentLoaded",
+    ()=>{
+
+        atualizarTempoHoje();
+
+    }
+);
 
