@@ -53,7 +53,7 @@ if(!localStorage.getItem("usuarios")){
             "login": "joaosilva",
             "senha": "joao123",
             "email": "joao@gmail.com",
-            "interesses_ids": [],
+            "interesses_ids": [1,2],
             "redes_sociais": [
                 {
                     id:1,
@@ -72,7 +72,7 @@ if(!localStorage.getItem("usuarios")){
             "login": "mafe",
             "email": "maria@email.com",
             "senha": "maria123",
-            "interesses_ids": [],
+            "interesses_ids": [4],
             "redes_sociais": [
                 {
                     id:1,
