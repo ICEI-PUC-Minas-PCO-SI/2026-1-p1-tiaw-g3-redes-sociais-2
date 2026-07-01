@@ -24,9 +24,6 @@ function carregarDados() {
 function preencherCampos(usuario) {
     document.getElementById('campo-nome').textContent = usuario.nome;
     document.getElementById('campo-email').textContent = usuario.email;
-    document.getElementById('campo-instagram').textContent = usuario.instagram;
-    document.getElementById('campo-facebook').textContent = usuario.facebook;
-    document.getElementById('campo-twitter').textContent = usuario.twitter;
 
     if (usuario.foto) {
         document.getElementById('foto-perfil').src = usuario.foto;

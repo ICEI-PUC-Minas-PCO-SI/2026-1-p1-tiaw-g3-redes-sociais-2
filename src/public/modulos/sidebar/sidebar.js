@@ -16,5 +16,7 @@ fetch("../sidebar/sidebar.html")
 
         });
 
+        document.body.style.visibility = "visible";
+
     });
     

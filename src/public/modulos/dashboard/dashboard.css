@@ -7,6 +7,10 @@
     --dark: #1f2937;
 }
 
+body {
+    visibility: hidden;
+}
+
 .conteudo-principal{
     flex: 1;
     padding: 30px;

@@ -1,0 +1,405 @@
+:root {
+    --primary: #4284c1;
+    --secondary: #4ca9cb;
+    --accent: #63d2c3;
+    --dark: #1f2937;
+}
+
+body {
+    visibility: hidden;
+}
+
+.conteudo-principal{
+    flex: 1;
+    padding: 30px;
+}
+
+
+/* Títulos */
+
+.placar-page h1 {
+    color: var(--primary);
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+#nome-grupo {
+    color: #6b7280;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+/* ===== Gerenciar Grupo ===== */
+
+.gerenciar-grupo {
+    margin-bottom: 40px;
+}
+
+.btn-gerenciar {
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 24px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.btn-gerenciar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(66,132,193,.25);
+}
+
+#painel-gerenciar {
+    margin-top: 20px;
+    background: white;
+    border-radius: 24px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.05);
+}
+
+.adicionar-usuario {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.adicionar-usuario input {
+    flex: 1;
+    min-width: 220px;
+    border: 2px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 12px;
+    outline: none;
+    transition: .3s;
+}
+
+.adicionar-usuario input:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 .25rem rgba(76,169,203,.15);
+}
+
+.adicionar-usuario button {
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 12px 20px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.adicionar-usuario button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(99,210,195,.25);
+}
+
+/* ===== Pódio ===== */
+
+.podio {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 25px;
+    margin: 50px 0;
+    flex-wrap: wrap;
+}
+
+.podio-item {
+    text-align: center;
+    width: 180px;
+}
+
+.podio-foto {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: 0 6px 20px rgba(0,0,0,.1);
+    margin-bottom: 12px;
+}
+
+.podio-nome {
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.podio-pts {
+    color: var(--secondary);
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.podio-pedestal {
+    border-radius: 20px 20px 0 0;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+
+.pedestal-1 {
+    height: 180px;
+    background: linear-gradient(
+        180deg,
+        #ffd54f,
+        #f4b400
+    );
+    font-size: 1.6rem;
+}
+
+.pedestal-2 {
+    height: 140px;
+    background: linear-gradient(
+        180deg,
+        #d9d9d9,
+        #bdbdbd
+    );
+    font-size: 1.4rem;
+}
+
+.pedestal-3 {
+    height: 110px;
+    background: linear-gradient(
+        180deg,
+        #d28a52,
+        #b66a32
+    );
+    font-size: 1.2rem;
+}
+
+/* Destacar campeão */
+
+#podio-1 {
+    transform: scale(1.08);
+}
+
+/* ===== Lista Completa ===== */
+
+.lista-title {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#lista-placar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Cada participante */
+
+.usuario-item {
+    background: white;
+    border-radius: 20px;
+    padding: 18px 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: .3s;
+}
+
+.usuario-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(66,132,193,.12);
+}
+
+.usuario-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.usuario-info img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.usuario-nome {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.usuario-pontos {
+    font-weight: 700;
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+/* ===== LISTA DE CLASSIFICAÇÃO ===== */
+
+.lista-title {
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+#lista-placar {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lista-row {
+    background: #fff;
+    border-radius: 20px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.05);
+    transition: .3s ease;
+}
+
+.lista-row:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 16px 35px rgba(66,132,193,.12);
+}
+
+.lista-rank {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+    );
+    color: white;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lista-foto {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(99,210,195,.3);
+}
+
+.lista-nome {
+    flex: 1;
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.lista-pts {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* ===== GERENCIAR GRUPO ===== */
+
+#lista-gerenciar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.gerenciar-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(76,169,203,.08);
+    border-left: 5px solid var(--accent);
+    padding: 14px 18px;
+    border-radius: 16px;
+}
+
+.gerenciar-row span {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+.btn-remover {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: #ef4444;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-remover:hover {
+    transform: scale(1.08);
+    background: #dc2626;
+}
+
+/* Top 3 destacados na lista */
+
+.lista-row:nth-child(1) .lista-rank {
+    background: linear-gradient(135deg, #ffd54f, #f4b400);
+}
+
+.lista-row:nth-child(2) .lista-rank {
+    background: linear-gradient(135deg, #d9d9d9, #bdbdbd);
+}
+
+.lista-row:nth-child(3) .lista-rank {
+    background: linear-gradient(135deg, #d28a52, #b66a32);
+}
+
+/* ===== Responsivo ===== */
+
+@media (max-width: 768px) {
+
+    .placar-page {
+        padding: 20px;
+        margin-left: 0;
+    }
+
+    .placar-page h1,
+    #nome-grupo {
+        text-align: center;
+    }
+
+    .podio {
+        gap: 15px;
+    }
+
+    .podio-item {
+        width: 140px;
+    }
+
+    .pedestal-1 {
+        height: 140px;
+    }
+
+    .pedestal-2 {
+        height: 110px;
+    }
+
+    .pedestal-3 {
+        height: 90px;
+    }
+
+    .usuario-item {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .usuario-info {
+        flex-direction: column;
+    }
+}
+
