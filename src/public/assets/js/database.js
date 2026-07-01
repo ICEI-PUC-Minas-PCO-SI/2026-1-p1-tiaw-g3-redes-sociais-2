@@ -16,7 +16,7 @@ if(!localStorage.getItem("interesses")){
         id: 4,
         nome: "Tecnologia"
     }
-];
+    ];
 
     localStorage.setItem("interesses", JSON.stringify(interesses));
 }
@@ -41,7 +41,7 @@ if(!localStorage.getItem("redes_sociais")){
     }
 ];
 
-    localStorage.setItem("redes_sociais", JSON.stringify(redeSociais));
+    localStorage.setItem("redes_sociais", JSON.stringify(redesSociais));
 }
 
 if(!localStorage.getItem("usuarios")){
@@ -51,6 +51,7 @@ if(!localStorage.getItem("usuarios")){
             "foto": "../images/users/joao.jpg",
             "nome": "João Silva",
             "login": "joaosilva",
+            "senha": "joao123",
             "email": "joao@gmail.com",
             "interesses_ids": [],
             "redes_sociais": [
@@ -70,6 +71,7 @@ if(!localStorage.getItem("usuarios")){
             "nome": "Maria Fernanda",
             "login": "mafe",
             "email": "maria@email.com",
+            "senha": "maria123",
             "interesses_ids": [],
             "redes_sociais": [
                 {
@@ -88,6 +90,7 @@ if(!localStorage.getItem("usuarios")){
             "nome":"Carlos Henrique",
             "login":"carlos",
             "email":"carlos@email.com",
+            "senha": "carlos123",
             "interesses_ids":[2,3],
             "redes_sociais":[
                 {
@@ -102,6 +105,7 @@ if(!localStorage.getItem("usuarios")){
             "nome":"Ana Paula",
             "login":"anapaula",
             "email":"ana@email.com",
+            "senha": "ana123",
             "interesses_ids":[1,2,4],
             "redes_sociais":[
                 {

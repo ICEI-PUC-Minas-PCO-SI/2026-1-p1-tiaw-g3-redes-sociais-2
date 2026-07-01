@@ -78,11 +78,11 @@
             </div>
 
 
-            <form id="login-form">
+            <form id="formLogin">
 
               <div class="mb-3">
 
-                <label class="form-label">
+                <label for="loginInput" class="form-label">
                   Usuário
                 </label>
 
@@ -94,7 +94,7 @@
 
                   </span>
 
-                  <input type="text" id="username" class="form-control" placeholder="Digite seu usuário" required>
+                  <input type="text" id="loginInput" class="form-control" placeholder="Digite seu login" required>
 
                 </div>
 
@@ -103,31 +103,23 @@
 
               <div class="mb-4">
 
-                <label class="form-label">
+                <label for="senhaInput" class="form-label">
                   Senha
                 </label>
 
                 <div class="input-group">
 
                   <span class="input-group-text">
-
                     <i class="bi bi-lock"></i>
-
                   </span>
-
-                  <input type="password" id="password" class="form-control" placeholder="Digite sua senha" required>
-
+                  <input type="password" id="senhaInput" class="form-control" placeholder="Digite sua senha" required>
                 </div>
-
               </div>
 
 
               <button type="submit" class="btn btn-gradient w-100">
-
                 <i class="bi bi-box-arrow-in-right me-2"></i>
-
                 Entrar
-
               </button>
 
             </form>
@@ -181,13 +173,13 @@
 
         <div class="modal-body">
 
-          <form id="cadastro-form">
+          <form id="formCadastro">
 
             <div class="row">
 
               <div class="col-md-6 mb-3">
 
-                <label class="form-label">
+                <label class="form-label" for="loginInput">
                   Usuário
                 </label>
 
@@ -281,25 +273,25 @@
 
             </div>
 
+            <div class="modal-footer">
+
+              <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
+
+                Cancelar
+
+              </button>
+
+              <button id="btn_salvar" class="btn btn-gradient" type="submit">
+
+                <i class="bi bi-person-plus-fill me-2"></i>
+
+                Cadastrar
+
+              </button>
+
+            </div>
+
           </form>
-
-        </div>
-
-        <div class="modal-footer">
-
-          <button class="btn btn-outline-secondary" data-bs-dismiss="modal">
-
-            Cancelar
-
-          </button>
-
-          <button id="btn_salvar" class="btn btn-gradient">
-
-            <i class="bi bi-person-plus-fill me-2"></i>
-
-            Cadastrar
-
-          </button>
 
         </div>
 
@@ -310,7 +302,10 @@
   </div>
 
 
-  <script src="../../assets/js/login.js"></script>
+  <script src="../../assets/js/database.js"></script>
+  <script src="../../assets/js/storage.js"></script>
+  <script src="../../assets/js/auth.js"></script>
+  <script src="login.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
