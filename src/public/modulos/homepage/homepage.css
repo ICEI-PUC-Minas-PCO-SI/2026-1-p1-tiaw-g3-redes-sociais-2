@@ -13,34 +13,20 @@ body {
     color: var(--dark);
 }
 
-/* =========================
-   HEADER
-========================= */
-
 .header-custom{
     background: rgba(255,255,255,.95);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-
     position: sticky;
     top: 0;
-    z-index: 1050;
-
+    z-index: 1000;
     box-shadow: 0 2px 15px rgba(0,0,0,.05);
 }
 
 .logo img{
-    width:50px;
-    height:50px;
-    object-fit:contain;
-    transition:.3s;
+    width:55px;
 }
 
-.logo:hover img{
-    transform:scale(1.05);
-}
-
-/* Links */
 
 .nav-link{
     color:#333;
@@ -52,26 +38,18 @@ body {
     color:var(--primary);
 }
 
-/* Botões */
-
 .btn-gradient{
-
     background: linear-gradient(
         135deg,
         var(--primary),
         var(--secondary)
     );
-
     color:#fff !important;
-
     border:none;
-    border-radius:12px;
-
-    padding:10px 22px;
-
+    border-radius:14px;
+    padding:12px 24px;
     font-weight:600;
-
-    transition:.3s;
+    transition:.35s;
 }
 
 .btn-gradient:hover{
