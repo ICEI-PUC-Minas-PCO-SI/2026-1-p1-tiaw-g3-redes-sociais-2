@@ -4,6 +4,13 @@ fetch("../sidebar/sidebar.html")
 
         document.getElementById("sidebar-container").innerHTML = data;
 
+        // Recupera o usuário do sessionStorage
+        const usuario = JSON.parse(sessionStorage.getItem("usuario"));
+
+        if (usuario) {
+            document.getElementById("userName").textContent = usuario.nome;
+        }
+
         const paginaAtual = window.location.pathname;
 
         document.querySelectorAll(".sidebar .menu a").forEach(link => {
@@ -17,11 +24,10 @@ fetch("../sidebar/sidebar.html")
         });
 
         document.getElementById("btnLogout").addEventListener("click", function (event) {
-        event.preventDefault();
-        logoutUser();
-    });
+            event.preventDefault();
+            logoutUser();
+        });
 
         document.body.style.visibility = "visible";
 
     });
-    
