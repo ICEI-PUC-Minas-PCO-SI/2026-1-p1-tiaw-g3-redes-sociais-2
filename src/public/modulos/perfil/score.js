@@ -5,7 +5,7 @@ const PONTOS_TAREFA = 10; // pontos ganhos por tarefa concluída
 // ─── Pega o nome do usuário logado ───────────────────────────────────────────
 
 function getNomeUsuario() {
-  const usuario = JSON.parse(localStorage.getItem('usuario'));
+  const usuario = JSON.parse(sessionStorage.getItem('usuario')) || JSON.parse(localStorage.getItem('usuario'));
   return usuario?.nome ?? null;
 }
 

@@ -1,109 +1,193 @@
 # Arquitetura da solução
 
-<span style="color:red">Pré-requisitos: <a href="05-Projeto-interface.md"> Projeto de interface</a></span>
+O OnLife é uma aplicação web front-end com páginas HTML concentradas em `src/public`, estilos em `src/public/assets/css`, scripts em `src/public/assets/js` e dados de apoio em `src/public/assets/data` e `src/db/db.json`.
 
-Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
-
-![Arquitetura da solução](images/exemplo-arquitetura.png)
+Na interface, os dados da aplicação são inicializados e persistidos no `localStorage` e a sessão do usuário logado é mantida no `sessionStorage`.
 
 ## Funcionalidades
 
-Esta seção apresenta as funcionalidades da solução.
+### Cadastro e login de usuários
 
-##### Funcionalidade 1 - Cadastro de contatos ⚠️ EXEMPLO ⚠️
+Permite criar uma conta, validar login e manter a sessão do usuário durante a navegação.
 
-Permite a inclusão, leitura, alteração e exclusão de contatos para o sistema
+* **Estruturas de dados:** `usuarios`
+* **Acesso:** `src/public/cadastro.html` e `src/public/login.html`
 
-* **Estrutura de dados:** [Contatos](#estrutura-de-dados---contatos)
-* **Instruções de acesso:**
-  * Abra o site e efetue o login;
-  * Acesse o menu principal e escolha a opção "Cadastros";
-  * Em seguida, escolha a opção "Contatos".
-* **Tela da funcionalidade**:
+### Dashboard
 
-![Tela de funcionalidade](images/exemplo-funcionalidade.png)
+Apresenta uma visão resumida da jornada do usuário, incluindo tempo registrado no dia e conteúdos recomendados a partir dos interesses cadastrados.
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente cada uma das funcionalidades que a aplicação fornece tanto para os usuários, quanto aos administradores da solução.
->
-> Inclua, para cada funcionalidade, itens como: (1) títulos e descrição da funcionalidade; (2) estrutura de dados associada; (3) o detalhe sobre as instruções de acesso e uso.
+* **Estruturas de dados:** `usuarios`, `historico_sessoes_cronometro`, `conteudos_recomendados`, `interesses`
+* **Acesso:** `src/public/dashboard.html`
 
-### Estruturas de dados
+### Tarefas
 
-Descrição das estruturas de dados utilizadas na solução com exemplos no formato JSON.Info.
+Permite cadastrar, concluir e excluir tarefas pessoais. As tarefas concluídas contribuem para o OnLife Score.
 
-##### Estrutura de dados - Contatos
+* **Estruturas de dados:** `tarefas`, `prioridades`
+* **Acesso:** `src/public/tarefas.html`
 
-Contatos da aplicação
+### Cronômetro e metas
+
+Permite registrar sessões de uso por rede social e definir limites diários. O histórico alimenta o dashboard.
+
+* **Estruturas de dados:** `redes_sociais`, `historico_sessoes_cronometro`
+* **Acesso:** `src/public/cronometro.html`
+
+### Perfil
+
+Permite visualizar e editar nome, e-mail, foto, interesses e redes sociais do usuário logado.
+
+* **Estruturas de dados:** `usuarios`, `interesses`, `redes_sociais`
+* **Acesso:** `src/public/perfil.html`
+
+### Placar
+
+Exibe um ranking gamificado dos participantes com pontuação por tarefas e controle de tempo.
+
+* **Estruturas de dados:** `placar`
+* **Acesso:** `src/public/placar.html`
+
+### Lugares
+
+Lista sugestões de lugares e atividades offline, com busca por nome ou descrição.
+
+* **Estruturas de dados:** `lugares`, `estados_brasil`
+* **Acesso:** `src/public/lugares.html`
+
+## Estruturas de dados
+
+### Usuários
 
 ```json
-  {
-    "id": 1,
-    "nome": "Leanne Graham",
-    "cidade": "Belo Horizonte",
-    "categoria": "amigos",
-    "email": "Sincere@april.biz",
-    "telefone": "1-770-736-8031",
-    "website": "hildegard.org"
-  }
-  
+{
+  "id": 1,
+  "foto": "assets/images/joao.jpg",
+  "nome": "João Silva",
+  "login": "joaosilva",
+  "senha": "joao123",
+  "email": "joao@gmail.com",
+  "interesses_ids": [1, 2],
+  "redes_sociais": [
+    {
+      "id": 1,
+      "meta_diaria_minutos": 60
+    }
+  ]
+}
 ```
 
-##### Estrutura de dados - Usuários  ⚠️ EXEMPLO ⚠️
-
-Registro dos usuários do sistema utilizados para login e para o perfil do sistema.
+### Tarefas
 
 ```json
-  {
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    email: "admin@abc.com",
-    id: "eed55b91-45be-4f2c-81bc-7686135503f9",
-    login: "admin",
-    nome: "Administrador do Sistema",
-    senha: "123"
-  }
+{
+  "id": 1,
+  "id_usuario": 1,
+  "titulo": "Ler um livro",
+  "descricao": "Ler 30 páginas",
+  "tempo_estimado_minutos": 35,
+  "data": "2026-07-01",
+  "prioridade_id": 1,
+  "concluida": false
+}
 ```
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente as estruturas de dados utilizadas na solução tanto para dados utilizados na essência da aplicação, quanto outras estruturas que foram criadas para algum tipo de configuração.
->
-> Nomeie a estrutura, coloque uma descrição sucinta e apresente um exemplo em formato JSON.
->
-> **Orientações:**
->
-> * [JSON Introduction](https://www.w3schools.com/js/js_json_intro.asp)
-> * [Trabalhando com JSON - Aprendendo desenvolvimento web | MDN](https://developer.mozilla.org/pt-BR/docs/Learn/JavaScript/Objects/JSON)
+### Histórico do cronômetro
 
-### Módulos e APIs
+```json
+{
+  "id": 1,
+  "id_usuario": 1,
+  "id_rede_social": 1,
+  "tempo_gasto_minutos": 45,
+  "data": "2026-07-01"
+}
+```
 
-Esta seção apresenta os módulos e APIs utilizados na solução.
+### Conteúdos recomendados
 
-**Images**:
+```json
+{
+  "id": 1,
+  "interesses_id": 1,
+  "titulo": "@devmais",
+  "descricao": "Conteúdos de programação",
+  "link": "instagram.com/devmais"
+}
+```
 
-* Unsplash - [https://unsplash.com/](https://unsplash.com/) ⚠️ EXEMPLO ⚠️
+### Lugares
 
-**Fonts:**
+```json
+{
+  "id": 1,
+  "nome": "Parque central",
+  "descricao": "Ambiente ideal para caminhadas e contato com a natureza.",
+  "id_estado": 1
+}
+```
 
-* Icons Font Face - [https://fontawesome.com/](https://fontawesome.com/) ⚠️ EXEMPLO ⚠️
+## Módulos e APIs
 
-**Scripts:**
+* **HTML, CSS e JavaScript:** estrutura principal da interface.
+* **Bootstrap:** grid, componentes visuais e responsividade.
+* **Bootstrap Icons:** ícones dos menus, botões e cartões.
+* **LocalStorage:** persistência dos dados da aplicação no navegador.
+* **SessionStorage:** controle do usuário logado durante a sessão.
+* **Node.js e JSON Server:** ambiente de execução local e servidor de arquivos/API simplificada.
 
-* jQuery - [http://www.jquery.com/](http://www.jquery.com/) ⚠️ EXEMPLO ⚠️
-* Bootstrap 4 - [http://getbootstrap.com/](http://getbootstrap.com/) ⚠️ EXEMPLO ⚠️
+## Organização de arquivos
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Apresente os módulos e APIs utilizados no desenvolvimento da solução. Inclua itens como: (1) frameworks, bibliotecas, módulos, etc. utilizados no desenvolvimento da solução; (2) APIs utilizadas para acesso a dados, serviços, etc.
-
+```plaintext
+src/
+├── db/
+│   └── db.json
+├── index.js
+├── package.json
+└── public/
+    ├── index.html
+    ├── about.html
+    ├── cadastro.html
+    ├── cronometro.html
+    ├── dashboard.html
+    ├── login.html
+    ├── lugares.html
+    ├── perfil.html
+    ├── placar.html
+    ├── sidebar.html
+    ├── tarefas.html
+    └── assets/
+        ├── css/
+        │   ├── cadastro.css
+        │   ├── cronometro.css
+        │   ├── dashboard.css
+        │   ├── homepage.css
+        │   ├── login.css
+        │   ├── lugares.css
+        │   ├── perfil.css
+        │   ├── placar.css
+        │   ├── sidebar.css
+        │   └── tarefas.css
+        ├── data/
+        │   └── placar.json
+        ├── images/
+        └── js/
+            ├── auth.js
+            ├── database.js
+            ├── sidebar.js
+            ├── storage.js
+            └── pages/
+                ├── cadastro.js
+                ├── cronometro.js
+                ├── dashboard.js
+                ├── homepage.js
+                ├── login.js
+                ├── lugares.js
+                ├── perfil.js
+                ├── placar.js
+                └── tarefas.js
+```
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foram realizados.
-
-> **Links úteis**:
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando seu site no Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+A aplicação pode ser executada localmente com `npm start` dentro da pasta `src`, acessando `http://localhost:3000`. Para publicação estática, a pasta `src/public` pode ser hospedada diretamente, preservando a estrutura de `assets`.

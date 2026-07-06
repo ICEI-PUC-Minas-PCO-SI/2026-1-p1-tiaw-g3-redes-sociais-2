@@ -1,178 +1,204 @@
-// ===== CARREGAR DADOS =====
+let usuarioPerfil = null;
 
-function carregarDados() {
-    const dadosSalvos = localStorage.getItem('usuario');
-
-    if (dadosSalvos) {
-        const usuario = JSON.parse(dadosSalvos);
-        preencherCampos(usuario);
-    } else {
-        fetch('../../assets/data/usuario.json')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(usuario) {
-                localStorage.setItem('usuario', JSON.stringify(usuario));
-                preencherCampos(usuario);
-            });
-    }
+function getUsuarioSessao() {
+    return JSON.parse(sessionStorage.getItem('usuario')) || null;
 }
 
+function salvarUsuarioPerfil(usuarioAtualizado) {
+    const usuarios = getUsuarios();
+    const indiceUsuario = usuarios.findIndex(function(usuario) {
+        return usuario.id === usuarioAtualizado.id;
+    });
 
-// ===== PREENCHER OS CAMPOS =====
+    if (indiceUsuario !== -1) {
+        usuarios[indiceUsuario] = usuarioAtualizado;
+        salvarUsuarios(usuarios);
+    }
+
+    sessionStorage.setItem('usuario', JSON.stringify(usuarioAtualizado));
+    usuarioPerfil = usuarioAtualizado;
+}
+
+function getNomesInteresses(usuario) {
+    const interesses = getInteresses();
+
+    return interesses
+        .filter(function(interesse) {
+            return (usuario.interesses_ids || []).includes(interesse.id);
+        })
+        .map(function(interesse) {
+            return interesse.nome;
+        });
+}
+
+function getNomesRedes(usuario) {
+    const redes = getRedesSociais();
+    const redesUsuario = usuario.redes_sociais || [];
+
+    return redesUsuario.map(function(redeUsuario) {
+        const rede = redes.find(function(item) {
+            return item.id === redeUsuario.id;
+        });
+
+        return rede ? rede.nome : null;
+    }).filter(Boolean);
+}
+
+function carregarDados() {
+    usuarioPerfil = getUsuarioSessao();
+
+    if (!usuarioPerfil) {
+        location.href = '../login/login.html';
+        return;
+    }
+
+    preencherCampos(usuarioPerfil);
+}
 
 function preencherCampos(usuario) {
-    document.getElementById('campo-nome').textContent = usuario.nome;
-    document.getElementById('campo-email').textContent = usuario.email;
+    document.getElementById('campo-nome').textContent = usuario.nome || '';
+    document.getElementById('campo-email').textContent = usuario.email || '';
 
     if (usuario.foto) {
         document.getElementById('foto-perfil').src = usuario.foto;
     }
 
-    renderizarLista('lista-interesses', usuario.interesses_selecionados ?? []);
-    renderizarLista('lista-redes', usuario.redes_selecionadas ?? []);
+    renderizarLista('lista-interesses', getNomesInteresses(usuario));
+    renderizarLista('lista-redes', getNomesRedes(usuario));
 
-    // atualiza o score após carregar os dados do usuário
-    atualizarScoreUI();
+    if (typeof atualizarScoreUI === 'function') {
+        atualizarScoreUI();
+    }
 }
-
-
-// ===== RENDERIZAR LISTA (modo visualização) =====
 
 function renderizarLista(idLista, itensSelecionados) {
     const lista = document.getElementById(idLista);
     lista.innerHTML = '';
+
+    if (itensSelecionados.length === 0) {
+        lista.innerHTML = '<li class="text-muted">Nenhum item selecionado.</li>';
+        return;
+    }
 
     itensSelecionados.forEach(function(item) {
         lista.innerHTML += `<li>${item}</li>`;
     });
 }
 
-
-// ===== RENDERIZAR CHECKBOXES (modo edição) =====
-
-function renderizarCheckboxes(idLista, itensDisponiveis, itensSelecionados) {
+function renderizarCheckboxes(idLista, itensDisponiveis, idsSelecionados, nomeCampo) {
     const lista = document.getElementById(idLista);
     lista.innerHTML = '';
 
     itensDisponiveis.forEach(function(item) {
-        const marcado = itensSelecionados.includes(item) ? 'checked' : '';
+        const marcado = idsSelecionados.includes(item.id) ? 'checked' : '';
+
         lista.innerHTML += `
             <li>
                 <label>
-                    <input type="checkbox" value="${item}" ${marcado}>
-                    ${item}
+                    <input type="checkbox" name="${nomeCampo}" value="${item.id}" ${marcado}>
+                    ${item.nome}
                 </label>
             </li>`;
     });
 }
 
-
-// ===== FOTO DE PERFIL =====
-
 document.getElementById('input-foto').addEventListener('change', function() {
+    if (!this.files || !this.files[0] || !usuarioPerfil) {
+        return;
+    }
+
     const reader = new FileReader();
 
-    reader.onload = function(e) {
-        document.getElementById('foto-perfil').src = e.target.result;
+    reader.onload = function(event) {
+        const foto = event.target.result;
+        document.getElementById('foto-perfil').src = foto;
 
-        const dadosSalvos = localStorage.getItem('usuario');
-        const usuario = dadosSalvos ? JSON.parse(dadosSalvos) : {};
-        usuario.foto = e.target.result;
-        localStorage.setItem('usuario', JSON.stringify(usuario));
+        salvarUsuarioPerfil({
+            ...usuarioPerfil,
+            foto: foto
+        });
     };
 
     reader.readAsDataURL(this.files[0]);
 });
 
-
-// ===== EDITAR =====
-
 function ativarEdicao() {
-    const infoBoxes = document.querySelectorAll('.info-box');
-    infoBoxes.forEach(function(box) {
-        const textoAtual = box.textContent.trim();
-        box.innerHTML = `<input type="text" value="${textoAtual}" style="border:none; outline:none; width:100%; background:transparent;">`;
+    if (!usuarioPerfil) {
+        return;
+    }
+
+    ['campo-nome', 'campo-email'].forEach(function(idCampo) {
+        const campo = document.getElementById(idCampo);
+        const textoAtual = campo.textContent.trim();
+        campo.innerHTML = `<input type="text" value="${textoAtual}" style="border:none; outline:none; width:100%; background:transparent;">`;
     });
 
-    const dadosSalvos = localStorage.getItem('usuario');
+    renderizarCheckboxes(
+        'lista-interesses',
+        getInteresses(),
+        usuarioPerfil.interesses_ids || [],
+        'interesses'
+    );
 
-    if (dadosSalvos) {
-        const usuario = JSON.parse(dadosSalvos);
-        renderizarCheckboxes('lista-interesses', usuario.interesses_disponiveis, usuario.interesses_selecionados);
-        renderizarCheckboxes('lista-redes', usuario.redes_disponiveis, usuario.redes_selecionadas);
+    renderizarCheckboxes(
+        'lista-redes',
+        getRedesSociais(),
+        (usuarioPerfil.redes_sociais || []).map(function(rede) {
+            return rede.id;
+        }),
+        'redes'
+    );
 
-        document.getElementById('btn-editar').style.display = 'none';
-        document.getElementById('btn-salvar').style.display = 'inline-block';
-
-    } else {
-        fetch('assets/data/usuario.json')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(usuario) {
-                renderizarCheckboxes('lista-interesses', usuario.interesses_disponiveis, usuario.interesses_selecionados);
-                renderizarCheckboxes('lista-redes', usuario.redes_disponiveis, usuario.redes_selecionadas);
-
-                document.getElementById('btn-editar').style.display = 'none';
-                document.getElementById('btn-salvar').style.display = 'inline-block';
-            });
-    }
+    document.getElementById('btn-editar').style.display = 'none';
+    document.getElementById('btn-salvar').style.display = 'inline-block';
 }
 
-
-// ===== SALVAR =====
-
 function salvarEdicao() {
-    const infoBoxes = document.querySelectorAll('.info-box');
-    infoBoxes.forEach(function(box) {
-        const novoValor = box.querySelector('input').value;
-        box.textContent = novoValor;
+    if (!usuarioPerfil) {
+        return;
+    }
+
+    const nome = document.querySelector('#campo-nome input').value.trim();
+    const email = document.querySelector('#campo-email input').value.trim();
+    const interessesIds = lerCheckboxesMarcados('lista-interesses');
+    const redesIds = lerCheckboxesMarcados('lista-redes');
+
+    const redesAtuais = usuarioPerfil.redes_sociais || [];
+    const redesSociais = redesIds.map(function(idRede) {
+        const redeAtual = redesAtuais.find(function(rede) {
+            return rede.id === idRede;
+        });
+
+        return {
+            id: idRede,
+            meta_diaria_minutos: redeAtual ? redeAtual.meta_diaria_minutos : 0
+        };
     });
 
-    const interessesMarcados = lerCheckboxesMarcados('lista-interesses');
-    const redesMarcadas = lerCheckboxesMarcados('lista-redes');
-
-    renderizarLista('lista-interesses', interessesMarcados);
-    renderizarLista('lista-redes', redesMarcadas);
-
-    const dadosSalvos = localStorage.getItem('usuario');
-    const usuarioAtual = dadosSalvos ? JSON.parse(dadosSalvos) : {};
-
-    const usuario = {
-        id: usuarioAtual.id,
-        nome: document.getElementById('campo-nome').textContent,
-        email: document.getElementById('campo-email').textContent,
-        instagram: document.getElementById('campo-instagram').textContent,
-        facebook: document.getElementById('campo-facebook').textContent,
-        twitter: document.getElementById('campo-twitter').textContent,
-        foto: usuarioAtual.foto || null,
-        interesses_disponiveis: usuarioAtual.interesses_disponiveis,
-        interesses_selecionados: interessesMarcados,
-        redes_disponiveis: usuarioAtual.redes_disponiveis,
-        redes_selecionadas: redesMarcadas
+    const usuarioAtualizado = {
+        ...usuarioPerfil,
+        nome: nome,
+        email: email,
+        interesses_ids: interessesIds,
+        redes_sociais: redesSociais
     };
 
-    localStorage.setItem('usuario', JSON.stringify(usuario));
+    salvarUsuarioPerfil(usuarioAtualizado);
+    preencherCampos(usuarioAtualizado);
 
     document.getElementById('btn-salvar').style.display = 'none';
     document.getElementById('btn-editar').style.display = 'inline-block';
 }
-
-
-// ===== LER CHECKBOXES MARCADOS =====
 
 function lerCheckboxesMarcados(idLista) {
     const checkboxes = document.querySelectorAll(`#${idLista} input[type="checkbox"]:checked`);
     const marcados = [];
 
     checkboxes.forEach(function(checkbox) {
-        marcados.push(checkbox.value);
+        marcados.push(Number(checkbox.value));
     });
 
     return marcados;
 }
 
-
-// ===== INICIA A PÁGINA =====
 carregarDados();
