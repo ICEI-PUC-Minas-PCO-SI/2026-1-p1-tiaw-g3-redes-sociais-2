@@ -49,46 +49,41 @@ As tabelas a seguir apresentam os requisitos funcionais e não funcionais que de
 
 ### Requisitos funcionais
 
-| ID     | Descrição do Requisito                                   | Prioridade |
-| ------ | ---------------------------------------------------------- | ---------- |
-| RF-001 | Permitir que o usuário cadastre tarefas ⚠️ EXEMPLO ⚠️ | ALTA       |
-| RF-002 | Emitir um relatório de tarefas no mês ⚠️ EXEMPLO ⚠️ | MÉDIA     |
+| ID     | Descrição do Requisito                                                              | Prioridade |
+| ------ | ----------------------------------------------------------------------------------- | ---------- |
+| RF-001 | Permitir o cadastro e autenticação de usuários.                                     | ALTA       |
+| RF-002 | Permitir que o usuário edite suas informações de perfil.                            | ALTA       |
+| RF-004 | Exibir conteúdos personalizados de acordo com os interesses do usuário.             | ALTA       |
+| RF-005 | Permitir que o usuário pesquise conteúdos por título ou categoria.                  | ALTA       |
+| RF-006 | Permitir que o usuário visualize conteúdos completos (artigos, vídeos e materiais). | ALTA       |
+| RF-007 | Permitir que o usuário acompanhe seu progresso de utilização da plataforma.         | MÉDIA      |
+| RF-008 | Permitir o cadastro, edição e exclusão de tarefas.                                  | ALTA       |
+| RF-009 | Permitir que o usuário marque tarefas como concluídas.                              | ALTA       |
+| RF-010 | Exibir recomendações de conteúdos relacionadas ao perfil do usuário.                | MÉDIA      |
+| RF-011 | Permitir que o usuário visualize o tempo diário de uso das redes sociais.           | ALTA       |
+| RF-012 | Permitir que o usuário defina um limite diário de uso das redes sociais.            | ALTA       |
+
 
 ### Requisitos não funcionais
 
-| ID      | Descrição do Requisito                                                              | Prioridade |
-| ------- | ------------------------------------------------------------------------------------- | ---------- |
-| RNF-001 | O sistema deve ser responsivo para rodar em dispositivos móveis ⚠️ EXEMPLO ⚠️ | MÉDIA     |
-| RNF-002 | Deve processar as requisições do usuário em no máximo 3 segundos ⚠️ EXEMPLO ⚠️          | BAIXA      |
+| ID      | Descrição do Requisito                                                                                                              | Prioridade |
+| ------- | ----------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| RNF-001 | O tempo de resposta das principais operações deve ser inferior a 3 segundos em condições normais de uso.                            | ALTA       |
+| RNF-002 | A interface deve seguir princípios de usabilidade, facilitando a navegação dos usuários.                                            | MÉDIA      |
+| RNF-003 | O sistema deve estar disponível 99% do tempo, exceto durante manutenções programadas.                                               | MÉDIA      |
+| RNF-004 | O código deve ser organizado de forma modular para facilitar manutenção e evolução do sistema.                                      | MÉDIA      |
+| RNF-005 | O sistema deve ser compatível com as versões mais recentes dos principais navegadores (Chrome, Edge e Firefox).                     | MÉDIA      |
+| RNF-006 | O sistema deve atender aos princípios da Lei Geral de Proteção de Dados (LGPD) no tratamento das informações pessoais dos usuários. | ALTA       |
 
-> ⚠️ **APAGUE ESTA PARTE ANTES DE ENTREGAR SEU TRABALHO**
->
-> Com base nas histórias de usuários, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos não funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-
-Lembre-se de que cada requisito deve corresponder a uma e somente uma característica-alvo da sua solução. Além disso, certifique-se de que todos os aspectos capturados nas histórias de usuários foram cobertos.
-
-> **Links úteis**:
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [Entenda o que são requisitos de software, a diferença entre requisito funcional e não funcional, e como identificar e documentar cada um deles](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 
 ## Restrições
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
 O projeto está restrito aos itens apresentados na tabela a seguir.
 
-|ID| Restrição                                             |
-|--|-------------------------------------------------------|
-|001| O projeto deverá ser entregue até o final do semestre ⚠️ EXEMPLO ⚠️ |
-|002| Não é permitido o desenvolvimento de um módulo de back-end  ⚠️ EXEMPLO ⚠️  |
+| ID    | Restrição                                                                                                                                                                                                                |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| R-001 | O projeto deverá ser desenvolvido e entregue dentro do cronograma definido para a disciplina.                                                                                                                            |
+| R-002 | A solução deverá ser desenvolvida utilizando apenas tecnologias estudadas durante o curso.
+                                                      |        
+| R-003 | O projeto terá como público-alvo usuários individuais, não contemplando funcionalidades corporativas ou multiempresa.                                                                                                    |
