@@ -6,13 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Placar - OnLife</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-        crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 
     <link rel="stylesheet" href="placar.css">
 </head>
@@ -39,20 +36,14 @@
             <!-- Gerenciar Grupo -->
             <div class="gerenciar-grupo">
 
-                <button
-                    id="btn-gerenciar"
-                    class="btn-gerenciar"
-                    onclick="toggleGerenciar()">
+                <button id="btn-gerenciar" class="btn-gerenciar" onclick="toggleGerenciar()">
                     Gerenciar Grupo
                 </button>
 
                 <div id="painel-gerenciar" style="display:none;">
 
                     <div class="adicionar-usuario">
-                        <input
-                            type="text"
-                            id="input-nome"
-                            placeholder="Nome do usuário">
+                        <input type="text" id="input-nome" placeholder="Nome do usuário">
 
                         <button onclick="adicionarUsuario()">
                             Adicionar
@@ -117,12 +108,18 @@
     </footer>
     -->
 
+    <script src="../../assets/js/auth.js"></script>
+    <script src="../sidebar/sidebar.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
+    <script src="../../assets/js/database.js"></script>
+    <script src="../../assets/js/storage.js"></script>
+
     <script src="placar.js"></script>
-    <script src="../sidebar/sidebar.js"></script>
+
 
 </body>
 
