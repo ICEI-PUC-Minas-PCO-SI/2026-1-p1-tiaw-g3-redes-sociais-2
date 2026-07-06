@@ -86,4 +86,4 @@ O projeto está restrito aos itens apresentados na tabela a seguir.
 | R-001 | O projeto deverá ser desenvolvido e entregue dentro do cronograma definido para a disciplina.                                                                                                                            |
 | R-002 | A solução deverá ser desenvolvida utilizando apenas tecnologias estudadas durante o curso.
                                                       |        
-| R-003 | O projeto terá como público-alvo usuários individuais, não contemplando funcionalidades corporativas ou multiempresa.                                                                                                    |
+| R-003 | O projeto terá como público-alvo usuários individuais, não contemplando funcionalidades corporativas ou multiempresa.
