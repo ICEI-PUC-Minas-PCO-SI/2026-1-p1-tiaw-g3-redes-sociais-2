@@ -2,16 +2,11 @@ let timer;
 let seconds = 0;
 let isRunning = false;
 
-// ==========================
-// USUÁRIO LOGADO
-// ==========================
+
 function getUsuarioLogado() {
     return JSON.parse(sessionStorage.getItem("usuario")) || null;
 }
 
-// ==========================
-// ELEMENTOS DOM
-// ==========================
 const timerDisplay = document.getElementById('timer-display');
 const btnStart = document.getElementById('btn-start');
 const btnReset = document.getElementById('btn-reset');
@@ -25,17 +20,13 @@ const btnSalvarMeta = document.getElementById('btn-salvar-meta');
 const tempoTotalGeral = document.getElementById('tempo-total-geral');
 const dashboardGraficos = document.getElementById('dashboard-graficos');
 
-// ==========================
-// INIT
-// ==========================
+
 window.addEventListener('DOMContentLoaded', () => {
     updateHistoryDOM();
     renderizarDashboard();
 });
 
-// ==========================
-// BOTÃO INICIAR / PAUSAR
-// ==========================
+
 btnStart.addEventListener('click', () => {
     if (!isRunning) {
         isRunning = true;
@@ -60,9 +51,6 @@ btnStart.addEventListener('click', () => {
     }
 });
 
-// ==========================
-// RESET
-// ==========================
 btnReset.addEventListener('click', () => {
     clearInterval(timer);
     isRunning = false;
@@ -75,18 +63,13 @@ btnReset.addEventListener('click', () => {
     btnStart.classList.add('btn-success');
 });
 
-// ==========================
-// FORMATAR TEMPO
-// ==========================
+
 function formatTime(totalSeconds) {
     const mins = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
     const secs = (totalSeconds % 60).toString().padStart(2, '0');
     return `${mins}:${secs}`;
 }
 
-// ==========================
-// SALVAR SESSÃO (COM USUÁRIO)
-// ==========================
 function saveSession(rede, tempo) {
     if (seconds === 0) return;
 
@@ -115,9 +98,7 @@ function saveSession(rede, tempo) {
     renderizarDashboard();
 }
 
-// ==========================
-// HISTÓRICO (FILTRADO POR USUÁRIO)
-// ==========================
+
 function updateHistoryDOM() {
     const usuario = getUsuarioLogado();
     if (!usuario || !historyList) return;
@@ -151,9 +132,7 @@ function updateHistoryDOM() {
     });
 }
 
-// ==========================
-// DASHBOARD
-// ==========================
+
 function renderizarDashboard() {
     const usuario = getUsuarioLogado();
     if (!usuario || !dashboardGraficos) return;
@@ -183,7 +162,7 @@ function renderizarDashboard() {
         }
     });
 
-    // total geral
+
     if (tempoTotalGeral) {
         const horas = Math.floor(minutosTotaisGerais / 60).toString().padStart(2, '0');
         const mins = Math.floor(minutosTotaisGerais % 60).toString().padStart(2, '0');
