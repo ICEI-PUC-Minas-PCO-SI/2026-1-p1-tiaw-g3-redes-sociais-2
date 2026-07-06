@@ -1,31 +1,39 @@
-function getUsuarioLogado(){
 
-    return JSON.parse(
-        sessionStorage.getItem("usuario")
-    ) || null;
-
+function getUsuarioLogado() {
+    return JSON.parse(sessionStorage.getItem("usuario")) || null;
 }
 
-function carregaNome(){
+function carregaNome() {
+
+    const usuario = getUsuarioLogado();
     const campoNome = document.getElementById("nomeUsuario");
 
-    campoNome.innerText = `Olá, ${getUsuarioLogado().nome}!`
-}
-carregaNome();
+    if (!usuario || !campoNome) {
+        return;
+    }
 
-function calcularTempoHoje(){
+    campoNome.innerText = `Olá, ${usuario.nome}!`;
+}
+
+
+function calcularTempoHoje() {
 
     const usuario = getUsuarioLogado();
 
-    if(!usuario){
+    if (!usuario) {
         return 0;
     }
 
-    const historico = getHistoricoCronometro();
+
+    const historico = JSON.parse(
+        localStorage.getItem("historico_sessoes")
+    ) || [];
+
 
     const hoje = new Date()
         .toISOString()
         .split("T")[0];
+
 
     const sessoesHoje = historico.filter(sessao => {
 
@@ -37,18 +45,19 @@ function calcularTempoHoje(){
     });
 
 
+    const totalMinutos = sessoesHoje.reduce((total, sessao) => {
 
-    const totalMinutos = sessoesHoje.reduce((total, sessao)=>{
+        return total + (sessao.tempo_gasto_minutos || 0);
 
-        return total + sessao.tempo_gasto_minutos;
+    }, 0);
 
-    },0);
 
-    return totalMinutos;
-
+    return Math.floor(totalMinutos);
 }
 
-function formatarTempo(minutos){
+
+
+function formatarTempo(minutos) {
 
     const horas = Math.floor(minutos / 60);
 
@@ -56,34 +65,38 @@ function formatarTempo(minutos){
 
 
     return `${horas} h ${minutosRestantes} m`;
-
 }
 
-function atualizarTempoHoje(){
+
+function atualizarTempoHoje() {
 
     const elementoTempo = document.getElementById("tempo-hoje");
-
     const barra = document.getElementById("barra-progresso");
 
-    if(!elementoTempo || !barra){
+
+    if (!elementoTempo || !barra) {
         return;
     }
 
+
     const minutosHoje = calcularTempoHoje();
+
 
     elementoTempo.innerText = formatarTempo(minutosHoje);
 
-    // Limite usado para preencher a barra
-    // 240 minutos = 4 horas
+
+
     const limiteDiario = 240;
+
 
     let porcentagem = 
         (minutosHoje / limiteDiario) * 100;
 
 
-    if(porcentagem > 100){
+    if (porcentagem > 100) {
         porcentagem = 100;
     }
+
 
     barra.style.width = `${porcentagem}%`;
 
@@ -94,50 +107,53 @@ function atualizarTempoHoje(){
 
 }
 
-document.addEventListener(
-    "DOMContentLoaded",
-    ()=>{
 
-        atualizarTempoHoje();
+function buscarConteudosRecomendados() {
 
-    }
-);
-
-function buscarConteudosRecomendados(){
     const usuario = getUsuarioLogado();
 
-    if(!usuario){
+
+    if (!usuario) {
         return [];
     }
 
+
     const conteudos = getConteudosRecomendados();
 
-    const interessesUsuario = usuario.interesses_ids;
 
-    const recomendados = conteudos.filter(conteudo => {
+    const interessesUsuario = usuario.interesses_ids || [];
+
+
+    return conteudos.filter(conteudo => {
 
         return interessesUsuario.includes(
             conteudo.interesses_id
         );
+
     });
-    return recomendados;
 }
 
-function carregarConteudosRecomendados(){
+
+
+function carregarConteudosRecomendados() {
 
     const container = document.getElementById(
         "conteudos-recomendados"
     );
 
-    if(!container){
+
+    if (!container) {
         return;
     }
 
+
     const conteudos = buscarConteudosRecomendados();
+
 
     container.innerHTML = "";
 
-    if(conteudos.length === 0){
+
+    if (conteudos.length === 0) {
 
         container.innerHTML = `
             <p class="text-muted">
@@ -148,7 +164,9 @@ function carregarConteudosRecomendados(){
         return;
     }
 
-    conteudos.forEach(conteudo =>{
+
+
+    conteudos.forEach(conteudo => {
 
         container.innerHTML += `
 
@@ -160,9 +178,11 @@ function carregarConteudosRecomendados(){
                         ${conteudo.titulo}
                     </h6>
 
+
                     <p class="card-text">
                         ${conteudo.descricao}
                     </p>
+
 
                     <a 
                         href="https://${conteudo.link}"
@@ -178,12 +198,20 @@ function carregarConteudosRecomendados(){
             </div>
 
         `;
+
     });
+
 }
 
-document.addEventListener( "DOMContentLoaded", ()=>{
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        carregaNome();
+
         atualizarTempoHoje();
+
         carregarConteudosRecomendados();
+
     }
 );
-
