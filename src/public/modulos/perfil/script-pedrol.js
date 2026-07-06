@@ -72,17 +72,29 @@ function preencherCampos(usuario) {
 }
 
 function renderizarLista(idLista, itensSelecionados) {
-    const lista = document.getElementById(idLista);
-    lista.innerHTML = '';
+    const container = document.getElementById(idLista);
+    container.innerHTML = "";
 
-    if (itensSelecionados.length === 0) {
-        lista.innerHTML = '<li class="text-muted">Nenhum item selecionado.</li>';
-        return;
+    if (itensSelecionados.length > 0) {
+
+        const ul = document.createElement("ul");
+
+        itensSelecionados.forEach(function(item) {
+            ul.innerHTML += `<li>${item}</li>`;
+        });
+
+        container.appendChild(ul);
     }
 
-    itensSelecionados.forEach(function(item) {
-        lista.innerHTML += `<li>${item}</li>`;
-    });
+    const botao = document.createElement("button");
+    botao.className = "btn btn-outline-primary btn-sm mt-2";
+    botao.textContent = itensSelecionados.length > 0
+        ? "Adicionar interesses"
+        : "Escolher interesses";
+
+    botao.onclick = ativarEdicao;
+
+    container.appendChild(botao);
 }
 
 function renderizarCheckboxes(idLista, itensDisponiveis, idsSelecionados, nomeCampo) {
