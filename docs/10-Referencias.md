@@ -1,7 +1,5 @@
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc.) utilizadas no desenvolvimento do trabalho.
-
 **Referências utilizadas na identificação do Problema**
 
 - ALFAYA, A. et al. **Social media addiction among university students: prevalence and associated factors. Healthcare**, [S.l.], v. 11, n. 3, 2023.
